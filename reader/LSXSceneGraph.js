@@ -693,9 +693,8 @@ LSXSceneGraph.prototype.parseAnimation = function(animation) {
 		var radius = this.reader.getFloat(animation, "radius");
 		var startang = this.reader.getFloat(animation, "startang");
 		var rotang = this.reader.getFloat(animation, "rotang");
-		this.animations[id] = new CircularAnimation(id, span, vec3.fromValues(center[0], center[1], center[2]), startang, rotang);
+		this.animations[id] = new CircularAnimation(id, span, vec3.fromValues(center[0], center[1], center[2]), startang * Math.PI / 180, rotang * Math.PI / 180);
 	}
-
 	else if(type == "linear"){
 		var controlPoints = [];
 		for (var i = 0; i < node.children.length; ++i) {
@@ -708,7 +707,6 @@ LSXSceneGraph.prototype.parseAnimation = function(animation) {
 
 		this.animations[id] = new LinearAnimation(id, span, controlPoints);
 	}
-
 	else return "Unknown animation type: " + type;
 }
 
