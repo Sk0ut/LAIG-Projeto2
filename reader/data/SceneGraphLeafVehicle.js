@@ -2,5 +2,5 @@ function SceneGraphLeafVehicle(id) {
     SceneGraphLeaf.call(this, id, "vehicle");
 }
 
-SceneGraphLeafCylinder.prototype = Object.create(SceneGraphLeaf.prototype);
-SceneGraphLeafCylinder.prototype.constructor = SceneGraphLeafVehicle;
+SceneGraphLeafVehicle.prototype = Object.create(SceneGraphLeaf.prototype);
+SceneGraphLeafVehicle.prototype.constructor = SceneGraphLeafVehicle;

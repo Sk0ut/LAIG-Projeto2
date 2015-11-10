@@ -3,5 +3,5 @@ function SceneGraphLeafPlane(id, parts) {
     this.parts = parts;
 }
 
-SceneGraphLeafCylinder.prototype = Object.create(SceneGraphLeaf.prototype);
-SceneGraphLeafCylinder.prototype.constructor = SceneGraphLeafPlane;
+SceneGraphLeafTerrain.prototype = Object.create(SceneGraphLeaf.prototype);
+SceneGraphLeafTerrain.prototype.constructor = SceneGraphLeafPlane;
