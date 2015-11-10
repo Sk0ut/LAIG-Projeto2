@@ -24,6 +24,9 @@ CircularAnimation.prototype.init = function() {
 }
 
 CircularAnimation.prototype.calculateMatrix = function(t) {
+
+	t = Math.min(Math.max(0, t), this.span);
+
 	var matrix = mat4.create();
 	mat4.identity(matrix);
 

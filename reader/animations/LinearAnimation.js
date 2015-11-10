@@ -41,18 +41,15 @@ LinearAnimation.prototype.init = function() {
 }
 
 LinearAnimation.prototype.calculateMatrix = function(t) {
-    var matrix = mat4.create();
-    mat4.identity(matrix);
-
+    t = Math.min(Math.max(t, 0), this.span);
+   
     var index;
-
-    // No transformation outside time span
-    if (! (0 <= t && t <= this.span))
-        return matrix;
-
     for (index = length - 1; index > 0; --index)
         if (this.controlPointsTime[index] < t)
             break;
+    
+    var matrix = mat4.create();
+    mat4.identity(matrix);
 
     var tScale = (t - this.controlPointsTime[index]) / this.controlPointsSpan[index];
     var position = vec3.clone(this.controlPoints[index]);
