@@ -119,6 +119,9 @@ MyLSXScene.prototype.onGraphLoaded = function ()
 				break;
     	}
     }
+
+    this.timer = 0;
+    this.setUpdatePeriod(100/6);
 };
 
 /**
@@ -201,6 +204,7 @@ MyLSXScene.prototype.drawNode = function(node, parentMaterial, parentTexture) {
 
 	this.pushMatrix();
 	
+	this.applyAnimation(this.graph.nodes[node]);
 	this.multMatrix(this.graph.nodes[node].transformationMatrix);
 
 	var material = this.graph.nodes[node].material;
@@ -232,4 +236,13 @@ MyLSXScene.prototype.updateLight = function(lightId, enable) {
 			return;
 		}
 	}
+}
+
+MyLSXScene.prototype.update = function(currTime) {
+	if (this.lastUpdate != 0)
+		this.timer += (currTime - this.lastUpdate) / 1000;
+}
+
+MyLSXScene.prototype.applyAnimation = function(node) {
+
 }
