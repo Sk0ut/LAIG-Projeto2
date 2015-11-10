@@ -686,12 +686,12 @@ LSXSceneGraph.prototype.parseAnimations = function(rootElement) {
 }
 
 LSXSceneGraph.prototype.parseAnimation = function(animation) {
-	var id = this.reader.getString(node, "id");
+	var id = this.reader.getString(animation, "id");
 	if (id in this.animations)
 		return "Animation id already in animation: " + id;
 
-	var span = this.reader.getFloat(node, "span");
-	var type = this.reader.getString(node, "type");
+	var span = this.reader.getFloat(animation, "span");
+	var type = this.reader.getString(animation, "type");
 
 	if(type == "circular") {
 		var center = this.reader.getCenter(animation, "center");
@@ -702,14 +702,13 @@ LSXSceneGraph.prototype.parseAnimation = function(animation) {
 	}
 	else if(type == "linear"){
 		var controlPoints = [];
-		for (var i = 0; i < node.children.length; ++i) {
-			var controlpoint = node.children[i];
+		for (var i = 0; i < animation.children.length; ++i) {
+			var controlpoint = animation.children[i];
 			var x = this.reader.getFloat(controlpoint, "xx");
 			var y = this.reader.getFloat(controlpoint, "yy");
 			var z = this.reader.getFloat(controlpoint, "zz");
 			controlPoints.push(vec3.fromValues(x,y,z));
 		}
-
 		this.animations[id] = new LinearAnimation(id, span, controlPoints);
 	}
 	else return "Unknown animation type: " + type;
