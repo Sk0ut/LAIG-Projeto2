@@ -1477,7 +1477,6 @@
             <DESCENDANT id="prateleira2" />
             <DESCENDANT id="armario1" />
         </DESCENDANTS>
-		<ANIMATIONREF id="teste" />
     </NODE>
       
 
