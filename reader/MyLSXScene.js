@@ -223,6 +223,16 @@ MyLSXScene.prototype.drawNode = function(node, parentMaterial, parentTexture) {
 	this.popMatrix();
 }
 
+LightingScene.prototype.makeSurface = function (patch) {
+		
+	var nurbsSurface = new CGFnurbsSurface(degree1, degree2, knots1, knots2, controlvertexes);
+	getSurfacePoint = function(u, v) {
+		return nurbsSurface.getPoint(u, v);
+	};
+
+	return new CGFnurbsObject(this, getSurfacePoint, 20, 20 );
+}
+
 /**
  * Updates the scene's lights.
  * @param lightId Identification of the light to update.

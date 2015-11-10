@@ -4,5 +4,5 @@ function SceneGraphLeafTerrain(id, texture, heightMap) {
     this.heightMap = heightMap;
 }
 
-SceneGraphLeafCylinder.prototype = Object.create(SceneGraphLeaf.prototype);
-SceneGraphLeafCylinder.prototype.constructor = SceneGraphLeafTerrain;
+SceneGraphLeafTerrain.prototype = Object.create(SceneGraphLeaf.prototype);
+SceneGraphLeafTerrain.prototype.constructor = SceneGraphLeafTerrain;
