@@ -5,3 +5,11 @@ function Animation(id, span, type) {
 }
 
 Animation.prototype.constructor = Animation;
+
+
+Animation.prototype.calculateMatrix = function() {
+    var matrix = mat4.create();
+    mat4.identity(matrix);
+
+    return matrix;
+}

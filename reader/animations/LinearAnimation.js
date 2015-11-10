@@ -10,7 +10,6 @@ LinearAnimation.prototype.constructor = LinearAnimation;
 LinearAnimation.prototype.init = function() {
     var vector = vec3.create();
     var distance = 0;
-
     this.translations = new Array(this.controlPoints.length - 1);
     this.rotations = new Array(this.controlPoints.length - 1);
 
@@ -30,11 +29,14 @@ LinearAnimation.prototype.init = function() {
     var velocity = distance / span;
 
     this.controlPointsTime = new Array(controlPoints.length);
-    controlPoints[0] = 0;
+    this.controlPointsTime[0] = 0;
+
+    this.controlPointsSpan = new Array(this.controlPoints.length - 1);
 
     for (var i = 1; i < this.controlPoints.length; ++i) {    
         this.controlPointsTime[i] = controlPointsTime[i - 1] +
-                               vec3.length(this.translations[i-1]) / velocity; 
+                               vec3.length(this.translations[i-1]) / velocity;
+        this.controlPointsSpan[i-1] = this.controlPointsTime[i] - this.controlPointsTime[i-1]; 
     }
 }
 
@@ -44,11 +46,22 @@ LinearAnimation.prototype.calculateMatrix = function(t) {
 
     var index;
 
-    for (index = length - 1; index >= 0; --index)
+    // No transformation outside time span
+    if (! (0 <= t && t <= this.span))
+        return matrix;
+
+    for (index = length - 1; index > 0; --index)
         if (this.controlPointsTime[index] < t)
             break;
 
-    var translation = this.controlPoints[index] + this.translations[index]
-                                                 * (t - this.controlPointsTime[index]) /
-                                                 (this.controlPointsTime[index + 1] - this.controlPointsTime[index]);
+    var tScale = (t - this.controlPointsTime[index]) / this.controlPointsSpan[index];
+    var position = vec3.clone(this.controlPoints[index]);
+    var translation_amount = vec3.create();
+    vec3.scale(translation_amount, this.translations[index], vec3.fromValues(tScale, tScale, tScale));
+    vec3.translate(position, position, translation_amount); 
+
+    mat4.rotateY(matrix,matrix,this.rotations[index]);
+    mat4.translate(matrix, matrix, position);
+
+    return matrix;
 }
