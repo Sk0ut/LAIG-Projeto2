@@ -21,9 +21,9 @@ LinearAnimation.prototype.init = function() {
 
         var projectionXZ = vec3.fromValues(vector[0], 0, vector[2]);
 
-        this.rotations[i - 1] = projectionXZ[0] / Math.abs(projectionXZ[0]) *
-                                Math.acos(vec3.dot(projectionXZ, vec3.fromValues(0, 0, 1))/
-                                          vec3.length(projectionXZ));
+        var sign = projectionXZ[0] < 0 ? -1 : 1;
+
+        this.rotations[i - 1] = sign * Math.acos(vec3.dot(projectionXZ, vec3.fromValues(0, 0, 1))/ vec3.length(projectionXZ));
 
         distance += vec3.length(vector);
     }
@@ -47,7 +47,7 @@ LinearAnimation.prototype.calculateMatrix = function(t) {
    
     var index;
     for (index = this.controlPointsTime.length - 1; index > 0; --index)
-        if (this.controlPointsTime[index] < t)
+        if (this.controlPointsTime[index] <= t)
             break;
     
     var matrix = mat4.create();
@@ -56,7 +56,7 @@ LinearAnimation.prototype.calculateMatrix = function(t) {
     var tScale = (t - this.controlPointsTime[index]) / this.controlPointsSpan[index];
     var position = vec3.clone(this.controlPoints[index]);
     var translation_amount = vec3.create();
-    vec3.scale(translation_amount, this.translations[index], vec3.fromValues(tScale, tScale, tScale));
+    vec3.scale(translation_amount, this.translations[index], tScale);
     vec3.add(position, position, translation_amount); 
 
     mat4.rotateY(matrix,matrix,this.rotations[index]);
