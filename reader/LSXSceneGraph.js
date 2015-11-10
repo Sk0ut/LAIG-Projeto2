@@ -497,8 +497,12 @@ LSXSceneGraph.prototype.parseLeaves = function(rootElement) {
 				if(data == null)
 					return "Error parsing patch " + id + " args";
 				var controlPoints = [];
-				for (var j = 0; j < leaf.children.length; ++j)
-					controlPoints.push(vec3.fromValues(leaf.children[0], leaf.children[1], leaf.children[2]));
+				for (var j = 0; j < leaf.children.length; ++j) {
+					var x = this.reader.getFloat(leaf.children[i], "x");
+					var y = this.reader.getFloat(leaf.children[i], "y");
+					var z = this.reader.getFloat(leaf.children[i], "z");
+					controlPoints.push([x, y, z]);
+				}
 				this.leaves[id] = new SceneGraphLeafPatch(id, data[0], data[1], data[2], controlPoints);
 				break;
 			case "vehicle":
