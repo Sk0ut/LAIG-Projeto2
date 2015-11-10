@@ -1292,7 +1292,7 @@
 
     <NODE id="armario1">
         <MATERIAL id="normal" />
-        <TEXTURE id="kitchen" />
+        <TEXTURE id="kitchendoor" />
 
         <TRANSLATION x="7" y="0" z="15" />
         <ROTATION axis="y" angle="90" />
