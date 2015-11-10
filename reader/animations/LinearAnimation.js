@@ -55,7 +55,7 @@ LinearAnimation.prototype.calculateMatrix = function(t) {
     var position = vec3.clone(this.controlPoints[index]);
     var translation_amount = vec3.create();
     vec3.scale(translation_amount, this.translations[index], vec3.fromValues(tScale, tScale, tScale));
-    vec3.translate(position, position, translation_amount); 
+    vec3.add(position, position, translation_amount); 
 
     mat4.rotateY(matrix,matrix,this.rotations[index]);
     mat4.translate(matrix, matrix, position);
