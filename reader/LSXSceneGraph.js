@@ -670,7 +670,7 @@ LSXSceneGraph.prototype.parseAnimations = function(rootElement) {
 
 	var animations = elems[0];
 
-	elems = nodes.getElementsByTagName("ANIMATION");
+	elems = animations.getElementsByTagName("ANIMATION");
 
 	for (var i = 0; i < elems.length; ++i) {
 		var animation = elems[i];
