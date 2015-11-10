@@ -19,6 +19,7 @@ serialInclude(['../lib/CGF.js',
 'data/SceneGraphLeafCylinder.js', 'data/SceneGraphLeafRectangle.js',
 'data/SceneGraphLeafSphere.js', 'data/SceneGraphLeafTriangle.js', 'data/SceneMaterial.js',
 'data/SceneGraphNode.js', 'MyInterface.js',
+'animations/Animation.js', 'animations/LinearAnimation.js', 'animations/CircularAnimation.js',
 
 main=function()
 {
