@@ -2,6 +2,8 @@ function LinearAnimation(id, span, controlPoints) {
     Animation.call(this, id, span, "linear");
 
     this.controlPoints = controlPoints;
+
+    this.init();
 }
 
 LinearAnimation.prototype = Object.create(Animation.prototype);
@@ -26,15 +28,15 @@ LinearAnimation.prototype.init = function() {
         distance += vec3.length(vector);
     }
 
-    var velocity = distance / span;
+    var velocity = distance / this.span;
 
-    this.controlPointsTime = new Array(controlPoints.length);
+    this.controlPointsTime = new Array(this.controlPoints.length);
     this.controlPointsTime[0] = 0;
 
     this.controlPointsSpan = new Array(this.controlPoints.length - 1);
 
     for (var i = 1; i < this.controlPoints.length; ++i) {    
-        this.controlPointsTime[i] = controlPointsTime[i - 1] +
+        this.controlPointsTime[i] = this.controlPointsTime[i - 1] +
                                vec3.length(this.translations[i-1]) / velocity;
         this.controlPointsSpan[i-1] = this.controlPointsTime[i] - this.controlPointsTime[i-1]; 
     }
@@ -44,7 +46,7 @@ LinearAnimation.prototype.calculateMatrix = function(t) {
     t = Math.min(Math.max(t, 0), this.span);
    
     var index;
-    for (index = length - 1; index > 0; --index)
+    for (index = this.controlPointsTime.length - 1; index > 0; --index)
         if (this.controlPointsTime[index] < t)
             break;
     
