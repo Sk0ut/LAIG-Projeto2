@@ -18,6 +18,9 @@ CircularAnimation.prototype.init = function() {
 	vec4.rotateY(this.initialTranslation, this.initialTranslation, this.startAngle);
 	vec4.translate(this.initialTranslation, this.initialTranslation,
 				   vec3.fromValues(0, 0, this.radius));
+	
+	vec4.rotateY(this.initialTranslation, this.initialTranslation,
+				this.rotAngle > 0 ? Math.PI / 2 : - Math.PI / 2);
 }
 
 CircularAnimation.prototype.calculateMatrix = function(t) {
