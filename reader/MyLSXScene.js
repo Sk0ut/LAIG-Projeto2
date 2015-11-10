@@ -96,7 +96,7 @@ MyLSXScene.prototype.onGraphLoaded = function ()
     for (var i = 0; i < this.graph.lights.length; ++i) {
     	this.lights.push(this.graph.lights[i]);
     	this.lights[i].setVisible(true);
-    	this.lightsEnabled[this.lights[i].id] = this.lights[i].enabled;
+    	this.lightsEnabled[this.lights[i]._id] = this.lights[i].enabled;
     }
 
 	if (this.myinterface != null)
@@ -126,7 +126,6 @@ MyLSXScene.prototype.onGraphLoaded = function ()
  */
 MyLSXScene.prototype.display = function () {
 	// ---- BEGIN Background, camera and axis setup
-    this.shader.bind();
 	
 	// Clear image and depth buffer everytime we update the scene
     this.gl.viewport(0, 0, this.gl.canvas.width, this.gl.canvas.height);
@@ -161,8 +160,6 @@ MyLSXScene.prototype.display = function () {
 
 		this.drawSceneGraph();
 	}	
-
-    this.shader.unbind();
 };
 
 /**
@@ -229,7 +226,7 @@ MyLSXScene.prototype.drawNode = function(node, parentMaterial, parentTexture) {
  */
 MyLSXScene.prototype.updateLight = function(lightId, enable) {
 	for (var i = 0; i < this.lights.length; ++i) {
-		if (this.lights[i].id == lightId) {
+		if (this.lights[i]._id == lightId) {
 			var light = this.lights[i];
 			enable ? light.enable() : light.disable();
 			return;
