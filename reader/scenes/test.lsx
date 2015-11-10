@@ -1484,6 +1484,7 @@
 
 <ANIMATIONS>
     <ANIMATION id="OMGAMesaAnda" span="10" type="linear">
+        <CONTROLPOINT xx="0" yy="0" zz="0" />
         <CONTROLPOINT xx="0" yy="0" zz="4" />
         <CONTROLPOINT xx="4" yy="0" zz="4" />
         <CONTROLPOINT xx="4" yy="0" zz="0" />
