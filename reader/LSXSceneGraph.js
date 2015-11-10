@@ -582,22 +582,20 @@ LSXSceneGraph.prototype.parseNode = function(node) {
 	var material = this.reader.getString(childNode, "id");
 	if(material != "null"){
 		if(!(material in this.materials)){
-			return "material " + material + "does not exist."
+			return "material " + material + " does not exist."
 		}
 	}
-
-	if(texture != "null"){
-		if(!(texture in this.textures)){
-			return "texture " + texture + "does not exist."
-		}
-	}
-
 	this.nodes[id].setMaterial(material);
 
 	childNode = node.children[1];
 	if (childNode.nodeName != "TEXTURE")
 		return "Expected TEXTURE as NODE " + id + " as 2nd child, found " + childNode.nodeName;
 	var texture = this.reader.getString(childNode, "id");
+	if(texture != "null" && texture != "clear"){
+		if(!(texture in this.textures)){
+			return "texture " + texture + " does not exist."
+		}
+	}
 	this.nodes[id].setTexture(texture);
 
 	for (var i = 2; i < node.children.length - 1; ++i) {
@@ -640,7 +638,7 @@ LSXSceneGraph.prototype.parseNode = function(node) {
 
 
 
-	var descendants = node.children[node.children.length - 2];
+	var descendants = node.children[node.children.length - 1];
 	if (descendants.nodeName != "DESCENDANTS")
 		return "Expected DESCENDANTS as NODE " + id + " last child, found: " + descendants.nodeName;
 
@@ -652,12 +650,15 @@ LSXSceneGraph.prototype.parseNode = function(node) {
 		this.nodes[id].addDescendant(descendant);
 	}
 
-	childNode = children[length - 1];
+	/*
+	childNode = node.children[length - 1];
+	
 	var animation = this.reader.getString(childNode, "id");
 	this.nodes[id].addAnimation(animation);
 
 	if(descendants.nodeName == "ANIMATIONREF")
 		var texture = this.reader.getString(childNode, "id");
+	*/
 }
 
 LSXSceneGraph.prototype.parseAnimations = function(rootElement) {
