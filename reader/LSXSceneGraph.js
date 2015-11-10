@@ -499,10 +499,10 @@ LSXSceneGraph.prototype.parseLeaves = function(rootElement) {
 				var controlPoints = [];
 				for (var j = 0; j < leaf.children.length; ++j)
 					controlPoints.push(vec3.fromValues(leaf.children[0], leaf.children[1], leaf.children[2]));
-				this.leaves[id] = new SceneGraphLeafPlane(id, data[0], data[1], data[2], controlPoints);
+				this.leaves[id] = new SceneGraphLeafPatch(id, data[0], data[1], data[2], controlPoints);
 				break;
 			case "vehicle":
-				this.leaves[id] = new SceneGraphLeafPlane(id);
+				this.leaves[id] = new SceneGraphLeafVehicle(id);
 				break;
 			case "terrain":
 				data = this.reader.getPatch(leaf, "args");
