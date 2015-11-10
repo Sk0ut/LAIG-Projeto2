@@ -6,6 +6,7 @@ function SceneGraphNode(id) {
     this.id = id;
     this.material = "null";
     this.texture = "clear";
+    this.animation = "null";
     this.transformationMatrix = mat4.create();
     mat4.identity(this.transformationMatrix);
     this.descendants = [];
@@ -13,6 +14,10 @@ function SceneGraphNode(id) {
 
 SceneGraphNode.prototype = Object.create(Object.prototype);
 SceneGraphNode.prototype.constructor = SceneGraphNode;
+
+SceneGraphNode.prototype.addAnimation = function(animation) {
+    this.animation = animation;
+}
 
 /**
  * Material setter.

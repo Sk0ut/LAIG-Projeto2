@@ -235,3 +235,7 @@ LSXReader.prototype.getSphere = function(element, attributeName, required) {
 LSXReader.prototype.getTriangle = function(element, attributeName, required) {
     return this.getArrayOfFloats(element, attributeName, 9, required);
 }
+
+LSXReader.prototype.getCenter = function(element, attributeName,required) {
+    return this.getArrayOfFloats(element, attributeName, 3, required);
+}

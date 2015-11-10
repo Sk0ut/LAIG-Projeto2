@@ -18,6 +18,7 @@ function LSXSceneGraph(filename, scene) {
     this.materials = [];
     this.leaves = [];
     this.nodes = [];
+    this.animations = [];
 
 
 	// Establish bidirectional references between scene and graph
@@ -73,6 +74,8 @@ LSXSceneGraph.prototype.parseSceneGraph = function(rootElement) {
         return error;
     }
 
+
+
     error = this.parseIllumination(rootElement);
     if (error) {
         return error;
@@ -103,13 +106,19 @@ LSXSceneGraph.prototype.parseSceneGraph = function(rootElement) {
         return error;
     }
 
+    error = this.parseAnimations(rootElement);
+    if(error) {
+    	return error;
+    }
+
 	if (rootElement.children[0].nodeName != "INITIALS" ||
 		rootElement.children[1].nodeName != "ILLUMINATION" ||
 		rootElement.children[2].nodeName != "LIGHTS" ||
 		rootElement.children[3].nodeName != "TEXTURES" ||
 		rootElement.children[4].nodeName != "MATERIALS" ||
 		rootElement.children[5].nodeName != "LEAVES" ||
-		rootElement.children[6].nodeName != "NODES")
+		rootElement.children[6].nodeName != "NODES" ||
+		rootElement.children[7].nodeName != "ANIMATIONS")
 		console.warn("Wrong order of SCENE children");
 
     this.loadedOk = true;
@@ -477,6 +486,30 @@ LSXSceneGraph.prototype.parseLeaves = function(rootElement) {
 					return "Error parsing triangle " + id + " args";
 				this.leaves[id] = new SceneGraphLeafTriangle(id, data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]);
 				break;
+			case "plane":
+				data = this.reader.getPlane(leaf, "args");
+				if(data == null)
+					return "Error parsing plane " + id + " args";
+				this.leaves[id] = new SceneGraphLeafPlane(id, data[0]);
+				break;
+			case "patch":
+				data = this.reader.getPatch(leaf, "args");
+				if(data == null)
+					return "Error parsing patch " + id + " args";
+				var controlPoints = [];
+				for (var j = 0; j < leaf.children.length; ++j)
+					controlPoints.push(vec3.fromValues(leaf.children[0], leaf.children[1], leaf.children[2]));
+				this.leaves[id] = new SceneGraphLeafPlane(id, data[0], data[1], data[2], controlPoints);
+				break;
+			case "vehicle":
+				this.leaves[id] = new SceneGraphLeafPlane(id);
+				break;
+			case "terrain":
+				data = this.reader.getPatch(leaf, "args");
+				if(data == null)
+					return "Error parsing patch " + id + " args";
+				this.leaves[id] = new SceneGraphLeafTerrain(id, data[0], data[1]);
+				break;
 			default:
 				return "Unknown LEAF type: " + type;
 		}
@@ -547,11 +580,23 @@ LSXSceneGraph.prototype.parseNode = function(node) {
 	if (childNode.nodeName != "MATERIAL")
 		return "Expected MATERIAL as NODE " + id + " as 1st child, found " + childNode.nodeName;
 	var material = this.reader.getString(childNode, "id");
+	if(material != "null"){
+		if(!(material in this.materials)){
+			return "material " + material + "does not exist."
+		}
+	}
+
+	if(texture != "null"){
+		if(!(texture in this.textures)){
+			return "texture " + texture + "does not exist."
+		}
+	}
+
 	this.nodes[id].setMaterial(material);
 
 	childNode = node.children[1];
 	if (childNode.nodeName != "TEXTURE")
-		return "Expected TEXURE as NODE " + id + " as 2nd child, found " + childNode.nodeName;
+		return "Expected TEXTURE as NODE " + id + " as 2nd child, found " + childNode.nodeName;
 	var texture = this.reader.getString(childNode, "id");
 	this.nodes[id].setTexture(texture);
 
@@ -593,7 +638,9 @@ LSXSceneGraph.prototype.parseNode = function(node) {
 		}
 	}
 
-	var descendants = node.children[node.children.length - 1];
+
+
+	var descendants = node.children[node.children.length - 2];
 	if (descendants.nodeName != "DESCENDANTS")
 		return "Expected DESCENDANTS as NODE " + id + " last child, found: " + descendants.nodeName;
 
@@ -604,7 +651,67 @@ LSXSceneGraph.prototype.parseNode = function(node) {
 		var descendant = this.reader.getString(descendants.children[i], "id");
 		this.nodes[id].addDescendant(descendant);
 	}
+
+	childNode = children[length - 1];
+	var animation = this.reader.getString(childNode, "id");
+	this.nodes[id].addAnimation(animation);
+
+	if(descendants.nodeName == "ANIMATIONREF")
+		var texture = this.reader.getString(childNode, "id");
 }
+
+LSXSceneGraph.prototype.parseAnimations = function(rootElement) {
+	var elems =  rootElement.getElementsByTagName("ANIMATIONS");
+
+	if (elems.length != 1) {
+		return "either zero or more than one 'ANIMATIONS' element found.";
+	}
+
+	var animations = elems[0];
+
+	elems = nodes.getElementsByTagName("ANIMATION");
+
+	for (var i = 0; i < elems.length; ++i) {
+		var animation = elems[i];
+		error = this.parseAnimation(animation);
+		if (error)
+			return error;
+	}
+}
+
+LSXSceneGraph.prototype.parseAnimation = function(animation) {
+	var id = this.reader.getString(node, "id");
+	if (id in this.animations)
+		return "Animation id already in animation: " + id;
+
+	var span = this.reader.getFloat(node, "span");
+	var type = this.reader.getString(node, "type");
+
+	if(type == "circular") {
+		var center = this.reader.getCenter(animation, "center");
+		var radius = this.reader.getFloat(animation, "radius");
+		var startang = this.reader.getFloat(animation, "startang");
+		var rotang = this.reader.getFloat(animation, "rotang");
+		this.animations[id] = new CircularAnimation(id, span, vec3.fromValues(center[0], center[1], center[2]), startang, rotang);
+	}
+
+	else if(type == "linear"){
+		var controlPoints = [];
+		for (var i = 0; i < node.children.length; ++i) {
+			var controlpoint = node.children[i];
+			var x = this.reader.getFloat(controlpoint, "xx");
+			var y = this.reader.getFloat(controlpoint, "yy");
+			var z = this.reader.getFloat(controlpoint, "zz");
+			controlPoints.push(vec3.fromValues(x,y,z));
+		}
+
+		this.animations[id] = new LinearAnimation(id, span, controlPoints);
+	}
+
+	else return "Unknown animation type: " + type;
+}
+
+
 
 /**
  * Callback to be executed on any read error
