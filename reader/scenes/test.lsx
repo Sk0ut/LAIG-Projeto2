@@ -7,7 +7,7 @@
     <rotation axis="y" angle="0" />
     <rotation axis="z" angle="0" /> 
     <scale sx="0.5" sy="0.5" sz="0.5" />
-    <reference length="0" />
+    <reference length="5" />
 </INITIALS>
 
 
@@ -206,7 +206,7 @@
 
 
 <NODES>
-    <ROOT id="sala" />
+    <ROOT id="mesa" />
 
     <!-- SALA -->
 
@@ -423,6 +423,8 @@
 
         <MATERIAL id="null" />
         <TEXTURE id="null" />
+
+        <ROTATION axis="y" angle="90" />
 
         <DESCENDANTS>
             <DESCENDANT id="pernamesa1" />
@@ -1483,12 +1485,11 @@
 </NODES>
 
 <ANIMATIONS>
-    <ANIMATION id="OMGAMesaAnda" span="10" type="linear">
-        <CONTROLPOINT xx="0" yy="0" zz="0" />
+    <ANIMATION id="OMGAMesaAnda" span="3" type="linear">
         <CONTROLPOINT xx="0" yy="0" zz="4" />
         <CONTROLPOINT xx="4" yy="0" zz="4" />
-        <CONTROLPOINT xx="4" yy="0" zz="0" />
-        <CONTROLPOINT xx="0" yy="0" zz="0" />
+        <!--<CONTROLPOINT xx="4" yy="0" zz="0" />
+        <CONTROLPOINT xx="0" yy="0" zz="0" />-->
     </ANIMATION>
 </ANIMATIONS>
 
