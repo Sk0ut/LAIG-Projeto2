@@ -6,40 +6,38 @@ function CircularAnimation(id, span, center, startAngle, rotAngle, radius) {
     this.startAngle = startAngle;
     this.rotAngle = rotAngle;
     this.radius = radius;
+    this.init();
 }
 
 CircularAnimation.prototype = Object.create(Animation.prototype);
 CircularAnimation.prototype.constructor = CircularAnimation;
 
 CircularAnimation.prototype.init = function() {
-	this.initialTranslation = vec4.create();
-	vec4.identity(this.initialTranslation);
-	vec4.translate(this.initialTranslation,this.initialTranslation, this.center);
-	vec4.rotateY(this.initialTranslation, this.initialTranslation, this.startAngle);
-	vec4.translate(this.initialTranslation, this.initialTranslation,
+	this.initialTransformation = mat4.create();
+	mat4.identity(this.initialTransformation);
+	mat4.rotateY(this.initialTransformation, this.initialTransformation, this.startAngle);
+	mat4.translate(this.initialTransformation, this.initialTransformation,
 				   vec3.fromValues(0, 0, this.radius));
 	
-	vec4.rotateY(this.initialTranslation, this.initialTranslation,
+	mat4.rotateY(this.initialTransformation, this.initialTransformation,
 				this.rotAngle > 0 ? Math.PI / 2 : - Math.PI / 2);
 }
 
 CircularAnimation.prototype.calculateMatrix = function(t) {
 
-	t = Math.min(Math.max(0, t), this.span);
+	t = Math.min(t, this.span);
 
 	var matrix = mat4.create();
 	mat4.identity(matrix);
+	
+	if (t < 0)
+		return matrix;
 
-	mat4.translate(matrix, matrix, center);
+	mat4.translate(matrix, matrix, this.center);
 
-	var rot = this.rotAngle * (this.t / this.span);
+	var rot = this.rotAngle * (t / this.span);
 	mat4.rotateY(matrix, matrix, rot);
-
-	var reverseCenter = vec3.clone(this.center);
-	vec3.scale(reverseCenter, reverseCenter, vec3.fromValues(-1,-1,-1));
-	mat4.translate(matrix, matrix, reverseCenter);
-
-	mat4.multiply(matrix, matrix, this.initialTranslation);
+	mat4.multiply(matrix, matrix, this.initialTransformation);
 
 	return matrix;
 }

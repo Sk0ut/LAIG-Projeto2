@@ -434,7 +434,7 @@
             <DESCENDANT id="tampomesa" />
         </DESCENDANTS>
 
-        <ANIMATIONREF id="OMGAMesaAnda" />
+        <ANIMATIONREF id="OMGAMesaRoda" />
 
     </NODE>
 
@@ -1486,11 +1486,13 @@
 
 <ANIMATIONS>
     <ANIMATION id="OMGAMesaAnda" span="3" type="linear">
+		<CONTROLPOINT xx="0" yy="0" zz="0" />
         <CONTROLPOINT xx="0" yy="0" zz="4" />
         <CONTROLPOINT xx="4" yy="0" zz="4" />
-        <!--<CONTROLPOINT xx="4" yy="0" zz="0" />
-        <CONTROLPOINT xx="0" yy="0" zz="0" />-->
+        <CONTROLPOINT xx="4" yy="0" zz="0" />
+        <CONTROLPOINT xx="0" yy="0" zz="0" />
     </ANIMATION>
+	<ANIMATION id="OMGAMesaRoda" span="10" type="circular" center="1 1 1" radius="3" startang="0" rotang="360"/>
 </ANIMATIONS>
 
 </SCENE>
