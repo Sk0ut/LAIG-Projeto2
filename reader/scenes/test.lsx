@@ -206,7 +206,20 @@
 
 
 <NODES>
-    <ROOT id="mesa" />
+    <ROOT id="sala" />
+
+    <NODE id="sofabosta">
+        <MATERIAL id="null" />
+        <TEXTURE id="clear" /> 
+
+        <DESCENDANTS>
+            <DESCENDANT id="sofa" />
+        </DESCENDANTS>
+
+        <ANIMATIONREF id="OMGAMesaAnda" />
+
+    </NODE>
+
 
     <!-- SALA -->
 
@@ -421,10 +434,10 @@
     <NODE id="mesa">
 
 
-        <MATERIAL id="null" />
+        <MATERIAL id="null" /> 
         <TEXTURE id="null" />
 
-		<TRANSLATION x="0" y="0" z="10" />
+		<TRANSLATION x="0" y="0" z="0" />
         <ROTATION axis="y" angle="90" />
 
         <DESCENDANTS>
@@ -434,8 +447,6 @@
             <DESCENDANT id="pernamesa4" />
             <DESCENDANT id="tampomesa" />
         </DESCENDANTS>
-
-        <ANIMATIONREF id="OMGAMesaRoda" />
 
     </NODE>
 
@@ -1062,6 +1073,8 @@
         <MATERIAL id="bordeaux" />
         <TEXTURE id="sofa" />
 
+        <ROTATION axis="y" angle="180" />
+        <TRANSLATION x="-3" y="0" z="-1" />
         <SCALE sx="1.5" sy="1.5" sz="1" />
 
         <DESCENDANTS>
@@ -1079,6 +1092,8 @@
     <NODE id="mesa1">
         <MATERIAL id="normal" />
         <TEXTURE id="null" />
+
+        <ROTATION axis="y" angle="90" />
 
         <DESCENDANTS>
             <DESCENDANT id="mesa" />
@@ -1409,7 +1424,8 @@
         <MATERIAL id="null" />
         <TEXTURE id="null" />
 
-        <TRANSLATION x="6.5" y="0" z="3" />
+        <TRANSLATION x="9.5" y="0" z="4" />
+        <ROTATION axis="y" angle="180" />
 
         <DESCENDANTS>
             <DESCENDANT id="sofa" />
