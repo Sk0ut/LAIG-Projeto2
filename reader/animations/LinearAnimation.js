@@ -10,12 +10,12 @@ LinearAnimation.prototype = Object.create(Animation.prototype);
 LinearAnimation.prototype.constructor = LinearAnimation;
 
 LinearAnimation.prototype.init = function() {
-    var vector = vec3.create();
     var distance = 0;
     this.translations = new Array(this.controlPoints.length - 1);
     this.rotations = new Array(this.controlPoints.length - 1);
 
     for (var i = 1; i < this.controlPoints.length; ++i) {
+        var vector = vec3.create();
         vec3.sub(vector, this.controlPoints[i], this.controlPoints[i - 1]);
         this.translations[i - 1] = vector;
 
@@ -43,15 +43,19 @@ LinearAnimation.prototype.init = function() {
 }
 
 LinearAnimation.prototype.calculateMatrix = function(t) {
-    t = Math.min(Math.max(t, 0), this.span);
-   
-    var index;
-    for (index = this.controlPointsTime.length - 1; index > 0; --index)
-        if (this.controlPointsTime[index] <= t)
-            break;
     
     var matrix = mat4.create();
     mat4.identity(matrix);
+    
+    if (t < 0)
+        return matrix;
+
+    t = Math.min(t, this.span);
+   
+    var index;
+    for (index = this.controlPointsTime.length - 1; index > 0; --index)
+        if (this.controlPointsTime[index] < t)
+            break;
 
     var tScale = (t - this.controlPointsTime[index]) / this.controlPointsSpan[index];
     var position = vec3.clone(this.controlPoints[index]);
@@ -59,8 +63,8 @@ LinearAnimation.prototype.calculateMatrix = function(t) {
     vec3.scale(translation_amount, this.translations[index], tScale);
     vec3.add(position, position, translation_amount); 
 
-    mat4.rotateY(matrix,matrix,this.rotations[index]);
     mat4.translate(matrix, matrix, position);
+    mat4.rotateY(matrix,matrix,this.rotations[index]);
 
     return matrix;
 }

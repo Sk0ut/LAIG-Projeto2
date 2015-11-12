@@ -249,5 +249,5 @@ MyLSXScene.prototype.applyAnimation = function(node) {
 	var animation = this.graph.animations[node.animation];
 	var animationMatrix = animation.calculateMatrix(this.timer);
 
-	this.multMatrix(animationMatrix);
+	//this.multMatrix(animationMatrix);
 }
