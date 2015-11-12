@@ -65,6 +65,6 @@ LinearAnimation.prototype.calculateMatrix = function(t) {
 
     mat4.translate(matrix, matrix, position);
     mat4.rotateY(matrix,matrix,this.rotations[index]);
-
+    
     return matrix;
 }
