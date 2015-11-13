@@ -17,6 +17,7 @@ MyLSXScene.prototype.init = function (application) {
 
     this.myinterface = null;
     this.graph = null;
+    this.plane = new MyPlane(this, 20);
 
     this.initCameras();
 
@@ -161,7 +162,8 @@ MyLSXScene.prototype.display = function () {
 	   	// Draw objects
 		this.setDefaultAppearance();
 
-		this.drawSceneGraph();
+		this.plane.display();
+		//this.drawSceneGraph();
 	}	
 };
 
