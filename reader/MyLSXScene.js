@@ -17,7 +17,6 @@ MyLSXScene.prototype.init = function (application) {
 
     this.myinterface = null;
     this.graph = null;
-    this.plane = new MyPlane(this, 20);
 
     this.initCameras();
 
@@ -118,6 +117,9 @@ MyLSXScene.prototype.onGraphLoaded = function ()
 			case "sphere":
 				this.primitives[key] = new MySphere(this, leaf.radius, leaf.slices, leaf.stacks);
 				break;
+			case "plane":
+				this.primitives[key] = new MyPlane(this, leaf.parts);
+				break;
     	}
     }
 
@@ -162,8 +164,7 @@ MyLSXScene.prototype.display = function () {
 	   	// Draw objects
 		this.setDefaultAppearance();
 
-		this.plane.display();
-		//this.drawSceneGraph();
+		this.drawSceneGraph();
 	}	
 };
 

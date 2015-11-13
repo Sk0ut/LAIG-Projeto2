@@ -17,7 +17,7 @@ serialInclude(['../lib/CGF.js',
 'MyLSXScene.js', 'data/SceneInitials.js', 'data/SceneIllumination.js', 'data/SceneLight.js', 'LSXSceneGraph.js',
 'LSXReader.js', 'data/SceneTexture.js', 'data/SceneGraphLeaf.js',
 'data/SceneGraphLeafCylinder.js', 'data/SceneGraphLeafRectangle.js',
-'data/SceneGraphLeafSphere.js', 'data/SceneGraphLeafTriangle.js', 'data/SceneMaterial.js',
+'data/SceneGraphLeafSphere.js', 'data/SceneGraphLeafPlane.js', 'data/SceneGraphLeafTriangle.js', 'data/SceneMaterial.js',
 'data/SceneGraphNode.js', 'MyInterface.js',
 'animations/Animation.js', 'animations/LinearAnimation.js', 'animations/CircularAnimation.js',
 

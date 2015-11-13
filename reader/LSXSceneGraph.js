@@ -487,7 +487,7 @@ LSXSceneGraph.prototype.parseLeaves = function(rootElement) {
 				this.leaves[id] = new SceneGraphLeafTriangle(id, data[0], data[1], data[2], data[3], data[4], data[5], data[6], data[7], data[8]);
 				break;
 			case "plane":
-				data = this.reader.getPlane(leaf, "args");
+				data = this.reader.getPlane(leaf);
 				if(data == null)
 					return "Error parsing plane " + id + " args";
 				this.leaves[id] = new SceneGraphLeafPlane(id, data[0]);

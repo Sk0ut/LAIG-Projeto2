@@ -239,3 +239,31 @@ LSXReader.prototype.getTriangle = function(element, attributeName, required) {
 LSXReader.prototype.getCenter = function(element, attributeName,required) {
     return this.getArrayOfFloats(element, attributeName, 3, required);
 }
+
+LSXReader.prototype.getPlane = function(element, required) {
+    if(required == undefined)
+        required = true;
+
+    if (element == null) {
+        console.error("element is null.");
+        return null;
+    }
+    
+    var attribute = element.getAttribute('parts');
+    if (attribute == null) {
+        if (required) console.error("value is null for attribute " + attributeName + ".");
+        return null;
+    }
+
+    var argsString = attribute.match(/\S+/g);
+    if (argsString.length != 1) {
+        console.error("wrong number of value for attribute parts (expected 1)");
+        return null;
+    }    
+
+    var argsValue = new Array();
+    var arg = parseInt(argsString[0]);
+    argsValue.push(arg);
+
+    return argsValue;
+}

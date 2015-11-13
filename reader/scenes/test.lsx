@@ -202,6 +202,7 @@
     <LEAF id="cylinder" type="cylinder" args="1.0 1.0 1.0 20 20" /> 
     <LEAF id="sphere" type="sphere" args="1.0 20 20" />
     <LEAF id="lamp" type="cylinder" args="1.0 0.5 0.1 20 20" />
+    <LEAF id="plane" type="plane" parts="20" />
 </LEAVES>
 
 
@@ -210,13 +211,13 @@
 
     <NODE id="sofabosta">
         <MATERIAL id="null" />
-        <TEXTURE id="clear" /> 
+        <TEXTURE id="door" /> 
+
+        <SCALE sx="10" sy="1" sz="10" />
 
         <DESCENDANTS>
-            <DESCENDANT id="sofa" />
+            <DESCENDANT id="plane" />
         </DESCENDANTS>
-
-        <ANIMATIONREF id="OMGAMesaVoa" />
 
     </NODE>
 
