@@ -14,17 +14,20 @@ LinearAnimation.prototype.init = function() {
     this.translations = new Array(this.controlPoints.length - 1);
     this.rotations = new Array(this.controlPoints.length - 1);
 
-    for (var i = 1; i < this.controlPoints.length; ++i) {
+    for (var i = 0; i < this.controlPoints.length - 1; ++i) {
         var vector = vec3.create();
-        vec3.sub(vector, this.controlPoints[i], this.controlPoints[i - 1]);
-        this.translations[i - 1] = vector;
+        vec3.sub(vector, this.controlPoints[i + 1], this.controlPoints[i]);
+        this.translations[i] = vector;
 
         var projectionXZ = vec3.fromValues(vector[0], 0, vector[2]);
 
-        var sign = projectionXZ[0] < 0 ? -1 : 1;
-
-        this.rotations[i - 1] = sign * Math.acos(vec3.dot(projectionXZ, vec3.fromValues(0, 0, 1))/ vec3.length(projectionXZ));
-
+        if (vec3.length(projectionXZ) > 0) {
+            var sign = projectionXZ[0] < 0 ? -1 : 1;
+            this.rotations[i] = sign * Math.acos(vec3.dot(projectionXZ, vec3.fromValues(0, 0, 1))/ vec3.length(projectionXZ));
+        } else {
+            this.rotations[i] = (i == 0 ? 0 : this.rotations[i - 1]);  
+        }
+    
         distance += vec3.length(vector);
     }
 
