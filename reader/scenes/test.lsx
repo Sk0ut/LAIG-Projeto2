@@ -203,6 +203,12 @@
     <LEAF id="sphere" type="sphere" args="1.0 20 20" />
     <LEAF id="lamp" type="cylinder" args="1.0 0.5 0.1 20 20" />
     <LEAF id="plane" type="plane" parts="20" />
+    <LEAF id="patch" type="patch" order="1" partsU="20" partsV="20">
+        <CONTROLPOINT x="-0.5" y="0" z="-0.5" />
+        <CONTROLPOINT x="-0.5" y="0" z="0.5" />
+        <CONTROLPOINT x="0.5" y="0" z="-0.5" />
+        <CONTROLPOINT x="0.5" y="0" z="0.5" />
+    </LEAF>
 </LEAVES>
 
 
@@ -216,7 +222,7 @@
         <SCALE sx="10" sy="1" sz="10" />
 
         <DESCENDANTS>
-            <DESCENDANT id="plane" />
+            <DESCENDANT id="patch" />
         </DESCENDANTS>
 
     </NODE>

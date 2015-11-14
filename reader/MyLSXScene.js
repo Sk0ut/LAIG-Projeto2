@@ -120,6 +120,9 @@ MyLSXScene.prototype.onGraphLoaded = function ()
 			case "plane":
 				this.primitives[key] = new MyPlane(this, leaf.parts);
 				break;
+			case "patch":
+				this.primitives[key] = new MyPatch(this, leaf.order, leaf.partsU, leaf.partsV, leaf.controlPoints);
+				break;
     	}
     }
 

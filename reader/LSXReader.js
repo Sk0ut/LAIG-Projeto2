@@ -249,9 +249,9 @@ LSXReader.prototype.getPlane = function(element, required) {
         return null;
     }
     
-    var attribute = element.getAttribute('parts');
+    var attribute = element.getAttribute("parts");
     if (attribute == null) {
-        if (required) console.error("value is null for attribute " + attributeName + ".");
+        if (required) console.error("value is null for attribute parts.");
         return null;
     }
 
@@ -264,6 +264,38 @@ LSXReader.prototype.getPlane = function(element, required) {
     var argsValue = new Array();
     var arg = parseInt(argsString[0]);
     argsValue.push(arg);
+
+    return argsValue;
+}
+
+LSXReader.prototype.getPatch = function(element, required){
+    if(required == undefined)
+        required = true;
+
+    if (element == null) {
+        console.error("element is null.");
+        return null;
+    }
+
+    var attributes = ["order", "partsU", "partsV"];
+    var argsValue = new Array();
+
+    for(var i = 0; i < attributes.length; ++i){
+        var attribute = element.getAttribute(attributes[i]);
+        if (attribute == null) {
+            if (required) console.error("value is null for attribute " +  attributes[i] + ".");
+            return null;
+        }
+
+        var argsString = attribute.match(/\S+/g);
+            if (argsString.length != 1) {
+            console.error("wrong number of value for attribute" +  atrributes[i] + "(expected 1)");
+            return null;
+        } 
+
+        var arg = parseInt(argsString[0]);
+        argsValue.push(arg);
+    }
 
     return argsValue;
 }
