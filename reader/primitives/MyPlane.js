@@ -5,17 +5,17 @@ function MyPlane(scene, parts){
 	};
 
     CGFnurbsObject.call(this,scene, getSurfacePoint, parts, parts);
+    this.fixTexCoords();
 }
 
 MyPlane.prototype = Object.create(CGFnurbsObject.prototype);
 MyPlane.prototype.constructor = MyPlane;
 
-MyPlane.prototype.display = function() {
-	this.scene.pushMatrix();
-		this.scene.scale(-1,1,1);
-		this.scene.rotate(0,0,1,Math.PI);
-		CGFnurbsObject.prototype.display.call(this);
-	this.scene.popMatrix();
+MyPlane.prototype.fixTexCoords = function() {
+	for (var i = 0; i < this.texCoords.length; i += 2)
+		this.texCoords[i] = 1 - this.texCoords[i];
+
+	this.initGLBuffers();
 }
 
 MyPlane.prototype.scaleTexCoords = function(ampS, ampT) {}

@@ -28,17 +28,18 @@ function MyPatch(scene, order, partsU, partsV, controlPoints){
 	};
 
     CGFnurbsObject.call(this,scene, getSurfacePoint, partsU, partsV);
+
+    this.fixTexCoords();
 }
 
 MyPatch.prototype = Object.create(CGFnurbsObject.prototype);
-MyPatch.prototype.constructor = MyPatch	;
+MyPatch.prototype.constructor = MyPatch;
 
-MyPatch.prototype.display = function() {
-	this.scene.pushMatrix();
-		this.scene.scale(-1,1,1);
-		this.scene.rotate(0,0,1,Math.PI);
-		CGFnurbsObject.prototype.display.call(this);
-	this.scene.popMatrix();
+MyPatch.prototype.fixTexCoords = function() {
+	for (var i = 0; i < this.texCoords.length; i += 2)
+		this.texCoords[i] = 1 - this.texCoords[i];
+
+	this.initGLBuffers();
 }
 
 MyPatch.prototype.scaleTexCoords = function(ampS, ampT) {}
