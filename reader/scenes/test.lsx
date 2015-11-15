@@ -6,8 +6,8 @@
     <rotation axis="x" angle="0" />
     <rotation axis="y" angle="0" />
     <rotation axis="z" angle="0" /> 
-    <scale sx="0.5" sy="0.5" sz="0.5" />
-    <reference length="5" />
+    <scale sx="1" sy="1" sz="1" />
+    <reference length="1" />
 </INITIALS>
 
 
@@ -209,6 +209,7 @@
         <CONTROLPOINT x="-0.5" y="0" z="-0.5" />
         <CONTROLPOINT x="-0.5" y="0" z="0.5" />
     </LEAF>
+	<LEAF id="terrain" type="terrain" texture="textures/terrainTexture.png" heightmap="textures/terrainHeightmap.png" />
 </LEAVES>
 
 
@@ -217,12 +218,13 @@
 
     <NODE id="sofabosta">
         <MATERIAL id="null" />
-        <TEXTURE id="door" /> 
+        <TEXTURE id="null" /> 
 
-        <SCALE sx="10" sy="1" sz="10" />
-
+		<SCALE sx="5" sy="2" sz="5" />
+		<TRANSLATION x="0.5" y="0" z="0.5" />
+		
         <DESCENDANTS>
-            <DESCENDANT id="patch" />
+            <DESCENDANT id="terrain" />
         </DESCENDANTS>
 
     </NODE>

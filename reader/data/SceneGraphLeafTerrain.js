@@ -1,7 +1,7 @@
-function SceneGraphLeafTerrain(id, texture, heightMap) {
+function SceneGraphLeafTerrain(id, textureUrl, heightmapUrl) {
     SceneGraphLeaf.call(this, id, "terrain");
-    this.texture = texture;
-    this.heightMap = heightMap;
+    this.textureUrl = textureUrl;
+    this.heightmapUrl = heightmapUrl;
 }
 
 SceneGraphLeafTerrain.prototype = Object.create(SceneGraphLeaf.prototype);

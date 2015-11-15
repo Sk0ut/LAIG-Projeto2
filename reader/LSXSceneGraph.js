@@ -509,10 +509,10 @@ LSXSceneGraph.prototype.parseLeaves = function(rootElement) {
 				this.leaves[id] = new SceneGraphLeafVehicle(id);
 				break;
 			case "terrain":
-				data = this.reader.getPatch(leaf, "args");
-				if(data == null)
-					return "Error parsing patch " + id + " args";
-				this.leaves[id] = new SceneGraphLeafTerrain(id, data[0], data[1]);
+				var baseUrl = this.filename.substring(0, this.filename.lastIndexOf("/"));
+				var textureUrl = baseUrl + '/' + this.reader.getString(leaf, "texture");
+				var heightmapUrl = baseUrl + '/' + this.reader.getString(leaf, "heightmap");
+				this.leaves[id] = new SceneGraphLeafTerrain(id, textureUrl, heightmapUrl);
 				break;
 			default:
 				return "Unknown LEAF type: " + type;
