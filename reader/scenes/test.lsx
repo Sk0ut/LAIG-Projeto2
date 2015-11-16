@@ -209,7 +209,7 @@
         <CONTROLPOINT x="-0.5" y="0" z="-0.5" />
         <CONTROLPOINT x="-0.5" y="0" z="0.5" />
     </LEAF>
-	<LEAF id="terrain" type="terrain" texture="textures/terrainTexture.png" heightmap="textures/terrainHeightmap.png" />
+	<LEAF id="terrain" type="terrain" texture="textures/marsTerrain.png" heightmap="textures/marsHeightmap.png" />
 </LEAVES>
 
 
@@ -220,7 +220,7 @@
         <MATERIAL id="null" />
         <TEXTURE id="null" /> 
 
-		<SCALE sx="5" sy="2" sz="5" />
+		<SCALE sx="10" sy="10" sz="10" />
 		<TRANSLATION x="0.5" y="0" z="0.5" />
 		
         <DESCENDANTS>
