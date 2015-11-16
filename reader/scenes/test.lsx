@@ -2,262 +2,50 @@
 
 <INITIALS>
     <frustum near="0.1" far="500.0"/>
-    <translation x="-5" y="-10 " z="-5" />
+    <translation x="-7" y="-15 " z="-7" />
     <rotation axis="x" angle="0" />
     <rotation axis="y" angle="0" />
     <rotation axis="z" angle="0" /> 
     <scale sx="0.5" sy="0.5" sz="0.5" />
-    <reference length="1" />
+    <reference length="0" />
 </INITIALS>
-
 
 <ILLUMINATION>
     <ambient r="0.1" g="0.1" b="0.1" a="1.0" />
-    <background r="0.6" g="0.6" b="0.6" a="1.0" />
+    <background r="0.63" g="0.56" b="0.35" a="1.0" />
 </ILLUMINATION>
 
-
 <LIGHTS>
-    <LIGHT id="luz_teto1">
+    <LIGHT id="luz_cena">
         <enable value= "1" />
         <position x="10" y="7" z="10" w="1.0" />
         <ambient r="0.9" g="0.9" b="0.9" a="1.0" />
         <diffuse r="0.9" g="0.9" b="0.9" a="1.0" />
         <specular r="0.9" g="0.9" b="0.9" a="1.0" /> 
     </LIGHT>
-
-    <LIGHT id="luz_candeeiro1">
-        <enable value= "1" />
-        <position x="1.025" y="2.5" z="11.25" w="1.0" />
-        <ambient r="0.06" g="0.06" b="0.06" a="1.0" />
-        <diffuse r="0.17" g="0.17" b="0.17" a="1.0" />
-        <specular r="0.17" g="0.17" b="0.17" a="1.0" />  
-    </LIGHT>
-
-    <LIGHT id="luz_candeeiro2">
-        <enable value= "1" />
-        <position x="10.125" y="2.5" z="11.25" w="1.0" />
-        <ambient r="0.06" g="0.06" b="0.06" a="1.0" />
-        <diffuse r="0.17" g="0.17" b="0.17" a="1.0" />
-        <specular r="0.17" g="0.17" b="0.17" a="1.0" /> 
-    </LIGHT>
-    
 </LIGHTS>
 
 
 <TEXTURES>
-	
-    <TEXTURE id="floor">
-        <file path="textures/floor.jpg" />                            
-        <amplif_factor s="0.125" t="0.125" />                
-    </TEXTURE> 
-
-    <TEXTURE id="wood">
-        <file path="textures/wood.png" />                            
-        <amplif_factor s="5" t="5" />                
-    </TEXTURE> 
-
-    <TEXTURE id="sofa">
-        <file path="textures/sofa.jpg" />                            
-        <amplif_factor s="1" t="1" />                
-    </TEXTURE> 
-
-    <TEXTURE id="chair">
-        <file path="textures/chair.jpg" />                            
-        <amplif_factor s="1" t="1" />                
-    </TEXTURE> 
-
-    <TEXTURE id="steel">
-        <file path="textures/steel.jpg" />                            
-        <amplif_factor s="1" t="1" />                
-    </TEXTURE> 
-
-    <TEXTURE id="oven">
-        <file path="textures/oven.jpg" />                            
-        <amplif_factor s="1" t="1" />                
-    </TEXTURE> 
-
-    <TEXTURE id="stove">
-        <file path="textures/stove.jpg" />                            
-        <amplif_factor s="1" t="1" />                
-    </TEXTURE> 
-
-    <TEXTURE id="fridge">
-        <file path="textures/fridge.jpg" />                            
-        <amplif_factor s="1" t="1" />                
+    <TEXTURE id="rocketTexture">
+        <file path="textures/rocket.png" />
+        <amplif_factor s="1" t="1" />
     </TEXTURE>
-
-    <TEXTURE id="abajur">
-        <file path="textures/abajur.jpg" />                            
-        <amplif_factor s="1" t="1" />                
-    </TEXTURE> 
-
-     <TEXTURE id="lightwood">
-        <file path="textures/wood_light.jpg" />                            
-        <amplif_factor s="1" t="1" />                
-    </TEXTURE> 
-
-    <TEXTURE id="door">
-        <file path="textures/door.jpg" />                            
-        <amplif_factor s="1" t="1" />                
-    </TEXTURE> 
-	
-    <TEXTURE id="kitchendoor">
-        <file path="textures/kitchendoor.jpg" />                           
-        <amplif_factor s="1" t="1" />                
-    </TEXTURE> 
-
-    <TEXTURE id="microwave">
-        <file path="textures/microwavedoor.jpg" />               
-        <amplif_factor s="1" t="1" />                
-    </TEXTURE> 
-
-    <TEXTURE id="wall">
-        <file path="textures/wall.jpg" />
-        <amplif_factor s="0.75" t="0.75" />
-    </TEXTURE>
-    
 </TEXTURES>
 
 
 <MATERIALS>
-    <MATERIAL id="normal">                                  
-        <shininess value="10.0" />
-        <specular r="0.694" g="0.696" b="0.635" a="1.0" />        <!-- specular reflection -->
-        <diffuse r="0.694" g="0.696" b="0.635" a="1.0" />      <!-- diffuse reflection -->
-        <ambient r="0.694" g="0.696" b="0.635" a="1.0" />        <!-- ambient reflection -->
-        <emission r="0" g="0" b="0" a="1" />       <!-- emission component -->
-    </MATERIAL>
-
-    <MATERIAL id="chao">                                  
-        <shininess value="10.0" />
-        <specular r="0.6" g="0.6" b="0.6" a="1.0" />        <!-- specular reflection -->
-        <diffuse r="0.6" g="0.6" b="0.6" a="1.0" />      <!-- diffuse reflection -->
-        <ambient r="0.6" g="0.6" b="0.6" a="1.0" />      <!-- ambient reflection -->
-        <emission r="0" g="0" b="0" a="1" />       <!-- emission component -->
-    </MATERIAL>
-
-
-    <MATERIAL id="wood">                                  
-        <shininess value="10.0" />
-        <specular r="0.2" g="0.2" b="0.2" a="1.0" />        <!-- specular reflection -->
-        <diffuse r="0.4" g="0.2" b="0" a="1.0" />      <!-- diffuse reflection -->
-        <ambient r="0.4" g="0.2" b="0" a="1.0" />        <!-- ambient reflection -->
-        <emission r="0" g="0" b="0" a="1" />       <!-- emission component -->
-    </MATERIAL>
-
-     <MATERIAL id="lightwood">                                  
-        <shininess value="10.0" />
-        <specular r="0.7" g="0.6" b="0.3" a="1.0" />        <!-- specular reflection -->
-        <diffuse r="0.7" g="0.6" b="0.3" a="1.0" />      <!-- diffuse reflection -->
-        <ambient r="0.7" g="0.6" b="0.3" a="1.0" />        <!-- ambient reflection -->
-        <emission r="0" g="0" b="0" a="1" />       <!-- emission component -->
-    </MATERIAL>
-
-    <MATERIAL id="cinzento-matte">                                  
-        <shininess value="10.0" />
-        <specular r="0.1" g="0.1" b="0.1" a="1" />        <!-- specular reflection -->
-        <diffuse r="0.5" g="0.5" b="0.5" a="1" />      <!-- diffuse reflection -->
-        <ambient r="0.5" g="0.5" b="0.5" a="1" />        <!-- ambient reflection -->
-        <emission r="0" g="0" b="0" a="1" />       <!-- emission component -->
-    </MATERIAL>
-
-    <MATERIAL id="bordeaux">                        
-        <shininess value="10.0" />
-        <specular r="0.17" g="0.03" b="0.04" a="1" />        <!-- specular reflection -->
-        <diffuse r="0.5" g="0.1" b="0.12" a="1" />      <!-- diffuse reflection -->
-        <ambient r="0.5" g="0.1" b="0.12" a="1" />        <!-- ambient reflection -->
-        <emission r="0" g="0" b="0" a="1" />       <!-- emission component -->
-    </MATERIAL>
-
-     <MATERIAL id="preto">                                  
+     <MATERIAL id="branco">                               
         <shininess value="1.0" />
         <specular r="0" g="0" b="0" a="1" />        <!-- specular reflection -->
-        <diffuse r="0" g="0" b="0" a="1" />         <!-- diffuse reflection -->
-        <ambient r="0" g="0" b="0" a="1" />         <!-- ambient reflection -->
-        <emission r="0" g="0" b="0" a="1" />        <!-- emission component -->
-    </MATERIAL>
-
-     <MATERIAL id="vermelho">                                  
-        <shininess value="1.0" />
-        <specular r="0.4" g="0" b="0" a="1" />        <!-- specular reflection -->
-        <diffuse r="0.6" g="0" b="0" a="1" />         <!-- diffuse reflection -->
-        <ambient r="0.6" g="0" b="0" a="1" />         <!-- ambient reflection -->
-        <emission r="0" g="0" b="0" a="1" />        <!-- emission component -->
-    </MATERIAL>
-
-
-     <MATERIAL id="lampada">                                  
-        <shininess value="10.0" />
-        <specular r="1.0" g="1" b="0.4" a="0.8" />        <!-- specular reflection -->
-        <diffuse r="1.0" g="1" b="0.4" a="0.8" />         <!-- diffuse reflection -->
-        <ambient r="1" g="1" b="0.4" a="0.8" />         <!-- ambient reflection -->
+        <diffuse r="0.6" g="0.6" b="0.6" a="1" />         <!-- diffuse reflection -->
+        <ambient r="0.6" g="0.6" b="0.6" a="1" />         <!-- ambient reflection -->
         <emission r="0" g="0" b="0" a="1" />        <!-- emission component -->
     </MATERIAL>
 </MATERIALS>
 
 
 <LEAVES>
-    <LEAF id="square" type="rectangle" args="0.0 1.0 1.0 0.0" />
-    <LEAF id="cylinder" type="cylinder" args="1.0 1.0 1.0 20 20" /> 
-    <LEAF id="sphere" type="sphere" args="1.0 20 20" />
-    <LEAF id="lamp" type="cylinder" args="1.0 0.5 0.1 20 20" />
-    <LEAF id="plane" type="plane" parts="20" />
-    <LEAF id="dome" type="patch" order="2" partsU="20" partsV="20">
-        <CONTROLPOINT x="0.5" y="0" z="0.0" />
-        <CONTROLPOINT x="0.5" y="0" z="0.0" />
-		<CONTROLPOINT x="0.5" y="0" z="0.0" />
-		<CONTROLPOINT x="0" y="0" z="-1" />
-		<CONTROLPOINT x="0" y="10" z="0" />
-		<CONTROLPOINT x="0" y="0" z="1" />
-        <CONTROLPOINT x="-0.5" y="0" z="0" />
-		<CONTROLPOINT x="-0.5" y="0" z="0" />
-        <CONTROLPOINT x="-0.5" y="0" z="0" />
-    </LEAF>
-	<LEAF id="frontBody" type="patch" order="2" partsU="20" partsV="20">
-        <CONTROLPOINT x="0" y="3" z="0" />
-		<CONTROLPOINT x="0" y="3" z="0" />
-        <CONTROLPOINT x="0" y="3" z="0" />
-		<CONTROLPOINT x="-0.5" y="2" z="0" />
-		<CONTROLPOINT x="0" y="2" z="1" />
-		<CONTROLPOINT x="0.5" y="2" z="0" />
-        <CONTROLPOINT x="-0.5" y="0" z="0" />
-        <CONTROLPOINT x="0" y="0" z="1" />
-		<CONTROLPOINT x="0.5" y="0" z="0" />
-	</LEAF>
-	<LEAF id="backBody" type="patch" order="2" partsU="20" partsV="20">
-        <CONTROLPOINT x="-0.5" y="0" z="0" />
-        <CONTROLPOINT x="0" y="0" z="-1" />
-		<CONTROLPOINT x="0.5" y="0" z="0" />
-		<CONTROLPOINT x="-0.5" y="2" z="0" />
-		<CONTROLPOINT x="0" y="2" z="-1" />
-		<CONTROLPOINT x="0.5" y="2" z="0" />
-        <CONTROLPOINT x="0" y="3" z="0" />
-		<CONTROLPOINT x="0" y="3" z="0" />
-        <CONTROLPOINT x="0" y="3" z="0" />
-	</LEAF>
-	<LEAF id="frontLeg" type="patch" order="2" partsU="20" partsV="20">
-		<CONTROLPOINT x="0.5" y="0" z="0" />
-        <CONTROLPOINT x="0.5" y="1" z="0" />
-		<CONTROLPOINT x="0" y="1" z="0" />
-		<CONTROLPOINT x="0.75" y="0" z="0.5" />
-		<CONTROLPOINT x="0.75" y="1.5" z="0.5" />
-		<CONTROLPOINT x="0" y="1.5" z="0.5" />
-        <CONTROLPOINT x="1" y="0" z="0" />
-		<CONTROLPOINT x="1" y="2" z="0" />
-        <CONTROLPOINT x="0" y="2" z="0" />
-	</LEAF>
-	<LEAF id="backLeg" type="patch" order="2" partsU="20" partsV="20">
-		<CONTROLPOINT x="1" y="0" z="0" />
-		<CONTROLPOINT x="1" y="2" z="0" />
-        <CONTROLPOINT x="0" y="2" z="0" />
-		<CONTROLPOINT x="0.75" y="0" z="-0.5" />
-		<CONTROLPOINT x="0.75" y="1.5" z="-0.5" />
-		<CONTROLPOINT x="0" y="1.5" z="-0.5" />
-		<CONTROLPOINT x="0.5" y="0" z="0" />
-        <CONTROLPOINT x="0.5" y="1" z="0" />
-		<CONTROLPOINT x="0" y="1" z="0" />
-	</LEAF>
 	<LEAF id="rocket" type="vehicle" />
 	<LEAF id="terrain" type="terrain" texture="textures/marsTerrain.png" heightmap="textures/marsHeightmap.png" />
 </LEAVES>
@@ -285,6 +73,8 @@
 		<DESCENDANTS>
 			<DESCENDANT id="terrain" />
 		</DESCENDANTS>
+		<ANIMATIONREF id="aguardar" />
+		<ANIMATIONREF id="afastamento" />
 	</NODE>
 	
 	<NODE id="orientaFoguetao">
@@ -302,8 +92,8 @@
 	</NODE>
 	
     <NODE id="foguetao">
-        <MATERIAL id="null" />
-        <TEXTURE id="null" />
+        <MATERIAL id="branco" />
+        <TEXTURE id="rocketTexture" />
 		
 		<ROTATION axis="z" angle="-90" />
 		
@@ -326,10 +116,14 @@
 		<CONTROLPOINT xx="0" yy="0" zz="0" />
         <CONTROLPOINT xx="10" yy="0" zz="0" />
     </ANIMATION>
-	<ANIMATION id="orientacao" span="10" type="circular" center="10 0 5" radius="5" startang="90" rotang="-90"/>
+	<ANIMATION id="orientacao" span="5" type="circular" center="10 0 5" radius="5" startang="90" rotang="-90"/>
 	<ANIMATION id="orbita" span="10" type="linear">
 		<CONTROLPOINT xx="15" yy="00" zz="5" />
-		<CONTROLPOINT xx="15" yy="0" zz="15" />
+		<CONTROLPOINT xx="15" yy="0" zz="20" />
+	</ANIMATION>
+	<ANIMATION id="afastamento" span="5" type="linear">
+		<CONTROLPOINT xx="0" yy="0" zz="0" />
+		<CONTROLPOINT xx="0" yy="-5" zz="0" />
 	</ANIMATION>
 </ANIMATIONS>
 
