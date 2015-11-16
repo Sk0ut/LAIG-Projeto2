@@ -123,6 +123,9 @@ MyLSXScene.prototype.onGraphLoaded = function ()
 			case "patch":
 				this.primitives[key] = new MyPatch(this, leaf.order, leaf.partsU, leaf.partsV, leaf.controlPoints);
 				break;
+			case "vehicle":
+				this.primitives[key] = new MyVehicle(this);
+				break;
 			case "terrain":
 				this.primitives[key] = new MyTerrain(this, leaf.textureUrl, leaf.heightmapUrl);
 				break;

@@ -10,6 +10,8 @@ LinearAnimation.prototype = Object.create(Animation.prototype);
 LinearAnimation.prototype.constructor = LinearAnimation;
 
 LinearAnimation.prototype.init = function() {
+    if (this.controlPoints.length == 1)
+        return;
     var distance = 0;
     this.translations = new Array(this.controlPoints.length - 1);
     this.rotations = new Array(this.controlPoints.length - 1);
@@ -46,7 +48,6 @@ LinearAnimation.prototype.init = function() {
 }
 
 LinearAnimation.prototype.calculateMatrix = function(t) {
-    
     var matrix = mat4.create();
     mat4.identity(matrix);
     
@@ -54,6 +55,11 @@ LinearAnimation.prototype.calculateMatrix = function(t) {
         return matrix;
 
     t = Math.min(t, this.span);
+
+    if (this.controlPoints.length == 1) {
+        mat4.translate(matrix, matrix, this.controlPoints[0]);
+        return matrix;
+    }
    
     var index;
     for (index = this.controlPointsTime.length - 1; index > 0; --index)
