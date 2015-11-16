@@ -9,7 +9,7 @@ function SceneGraphNode(id) {
     this.transformationMatrix = mat4.create();
     mat4.identity(this.transformationMatrix);
     this.descendants = [];
-    this.animation = "null";
+    this.animations = [];
 }
 
 SceneGraphNode.prototype = Object.create(Object.prototype);
@@ -43,8 +43,8 @@ SceneGraphNode.prototype.addDescendant = function(descendant) {
     this.descendants.push(descendant);
 }
 
-SceneGraphNode.prototype.setAnimation = function(animation) {
-    this.animation = animation;
+SceneGraphNode.prototype.addAnimation = function(animation) {
+    this.animations.push(animation);
 }
 /**
  * Applies a rotation to the node around the X axis.

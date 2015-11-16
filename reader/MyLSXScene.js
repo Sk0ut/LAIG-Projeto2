@@ -257,10 +257,19 @@ MyLSXScene.prototype.update = function(currTime) {
 }
 
 MyLSXScene.prototype.applyAnimation = function(node) {
-	if (node.animation == "null")
+	if (node.animations.length == 0)
 		return;
-	var animation = this.graph.animations[node.animation];
-	var animationMatrix = animation.calculateMatrix(this.timer);
+
+	var t = this.timer;
+	var animationIndex;
+	for (animationIndex = 0; animationIndex < node.animations.length - 1; ++animationIndex) {
+		if (t < this.graph.animations[node.animations[animationIndex]].span)
+			break;
+		t -= this.graph.animations[node.animations[animationIndex]].span;
+	}
+	var animation = this.graph.animations[node.animations[animationIndex]];
+
+	var animationMatrix = animation.calculateMatrix(t);
 
 	this.multMatrix(animationMatrix);
 }

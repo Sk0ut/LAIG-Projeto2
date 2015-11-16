@@ -578,33 +578,29 @@ LSXSceneGraph.prototype.parseNode = function(node) {
 	if (id in this.nodes)
 		return "Duplicate node id: " + id;
 	
+	if (node.children.length < 3) 
+		return "Missing elements for node " + id + " . Need MATERIAL, TEXTURE and DESCENDANTS.";
+
 	this.nodes[id] = new SceneGraphNode(id);
 
 	var childNode = node.children[0];
 	if (childNode.nodeName != "MATERIAL")
 		return "Expected MATERIAL as NODE " + id + " as 1st child, found " + childNode.nodeName;
 	var material = this.reader.getString(childNode, "id");
-	if(material != "null"){
-		if(!(material in this.materials)){
-			return "material " + material + " does not exist."
-		}
-	}
 	this.nodes[id].setMaterial(material);
 
 	childNode = node.children[1];
 	if (childNode.nodeName != "TEXTURE")
 		return "Expected TEXTURE as NODE " + id + " as 2nd child, found " + childNode.nodeName;
 	var texture = this.reader.getString(childNode, "id");
-	if(texture != "null" && texture != "clear"){
-		if(!(texture in this.textures)){
-			return "texture " + texture + " does not exist."
-		}
-	}
 	this.nodes[id].setTexture(texture);
 
-	var descendantsIndex = node.children.length - 2;
-	if (node.children[descendantsIndex].nodeName != "DESCENDANTS")
-		descendantsIndex = node.children.length - 1;
+	var descendantsIndex;
+	for (descendantsIndex = 2; descendantsIndex < node.children.length; ++descendantsIndex)
+		if (node.children[descendantsIndex].nodeName == "DESCENDANTS")
+			break;
+	if (descendantsIndex == node.children.length)
+		return "DESCENDANTS element missing for node " + id; 
 
 	for (var i = 2; i < descendantsIndex; ++i) {
 		var transformation = node.children[i];
@@ -645,9 +641,6 @@ LSXSceneGraph.prototype.parseNode = function(node) {
 	}
 
 	var descendants = node.children[descendantsIndex];
-	if (descendants.nodeName != "DESCENDANTS")
-		return "Expected DESCENDANTS in NODE " + id + " found: " + descendants.nodeName;
-
 	if (descendants.children.length == 0)
 		return "Node " + id + " with no descendants";
 
@@ -656,13 +649,13 @@ LSXSceneGraph.prototype.parseNode = function(node) {
 		this.nodes[id].addDescendant(descendant);
 	}
 
-	if (descendantsIndex != node.children.length - 1) {
-		childNode = node.children[node.children.length - 1];
+	for (var i = descendantsIndex + 1; i < node.children.length; ++i) {
+		childNode = node.children[i];
 		if(childNode.nodeName != "ANIMATIONREF")
 			return "Expected ANIMATIONREF in NODE " + id + " found: " + childNode.nodeName;
 	
 		var animation = this.reader.getString(childNode, "id");
-		this.nodes[id].setAnimation(animation);
+		this.nodes[id].addAnimation(animation);
 	}
 }
 

@@ -219,13 +219,15 @@
     <NODE id="sofabosta">
         <MATERIAL id="null" />
         <TEXTURE id="null" /> 
-
-		<SCALE sx="10" sy="10" sz="10" />
-		<TRANSLATION x="0.5" y="0" z="0.5" />
+		
+		<SCALE sx="0.5" sy="0.5" sz="0.5" />
 		
         <DESCENDANTS>
-            <DESCENDANT id="terrain" />
+            <DESCENDANT id="sofa" />
         </DESCENDANTS>
+		<ANIMATIONREF id="OMGAMesaVoa" />
+		<ANIMATIONREF id="OMGAMesaAnda" />
+		<ANIMATIONREF id="OMGAMesaVoa" />
 
     </NODE>
 
