@@ -1,3 +1,9 @@
+/**
+'* LinearAnimation class.
+ * @param id The animation's id.
+ * @param span The animation's span.
+ * @param controlPoints The animation's control points.
+ */
 function LinearAnimation(id, span, controlPoints) {
     Animation.call(this, id, span, "linear");
 
@@ -9,6 +15,9 @@ function LinearAnimation(id, span, controlPoints) {
 LinearAnimation.prototype = Object.create(Animation.prototype);
 LinearAnimation.prototype.constructor = LinearAnimation;
 
+/**
+'* Initiates the animation.
+ */
 LinearAnimation.prototype.init = function() {
     if (this.controlPoints.length == 1)
         return;
@@ -47,6 +56,10 @@ LinearAnimation.prototype.init = function() {
     }
 }
 
+/** 
+ * Calculates the matrix while the animation is running.
+ * t the current time.
+ */
 LinearAnimation.prototype.calculateMatrix = function(t) {
     var matrix = mat4.create();
     mat4.identity(matrix);

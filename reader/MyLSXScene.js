@@ -99,9 +99,6 @@ MyLSXScene.prototype.onGraphLoaded = function ()
     	this.lightsEnabled[this.lights[i]._id] = this.lights[i].enabled;
     }
 
-	if (this.myinterface != null)
-	    this.myinterface.onGraphLoaded();
-
     for (key in this.graph.leaves) {
     	var leaf = this.graph.leaves[key];
     	switch (leaf.type) {
@@ -137,6 +134,9 @@ MyLSXScene.prototype.onGraphLoaded = function ()
 
     this.timer = 0;
     this.setUpdatePeriod(100/6);
+
+	if (this.myinterface != null)
+	    this.myinterface.onGraphLoaded();
 };
 
 /**
@@ -251,6 +251,13 @@ MyLSXScene.prototype.updateLight = function(lightId, enable) {
 			return;
 		}
 	}
+}
+
+/**
+ * Resets the timer.
+ */
+MyLSXScene.prototype.resetTimer = function() {
+	this.timer = 0;
 }
 
 /**

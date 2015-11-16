@@ -13,7 +13,8 @@ function Animation(id, span, type) {
 Animation.prototype.constructor = Animation;
 
 /**
- * returns an identity matrix.
+ * Ŕeturns an identity matrix. Template function.
+ * @returns {mat4} Identity matrix.
  */
 Animation.prototype.calculateMatrix = function() {
     var matrix = mat4.create();

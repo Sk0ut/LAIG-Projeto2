@@ -23,8 +23,8 @@ MyInterface.prototype.init = function(application) {
  */
 MyInterface.prototype.onGraphLoaded = function(){
     var group = this.gui.addFolder('Lights');
-    group.open();
 	var self = this;
+	this.gui.close();
 
 	for(key in this.scene.lightsEnabled){
 	    var controller = group.add(this.scene.lightsEnabled,key);
@@ -32,6 +32,8 @@ MyInterface.prototype.onGraphLoaded = function(){
 	    	self.scene.updateLight(this.property, enable);
 	    });
 	}
+
+	this.gui.add(this.scene, "resetTimer").name("Reset Timer");
 }
 
 /**
