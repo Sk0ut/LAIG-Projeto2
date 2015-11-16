@@ -15,10 +15,6 @@ function SceneGraphNode(id) {
 SceneGraphNode.prototype = Object.create(Object.prototype);
 SceneGraphNode.prototype.constructor = SceneGraphNode;
 
-SceneGraphNode.prototype.addAnimation = function(animation) {
-    this.animation = animation;
-}
-
 /**
  * Material setter.
  * @param material Material to set.
@@ -43,6 +39,10 @@ SceneGraphNode.prototype.addDescendant = function(descendant) {
     this.descendants.push(descendant);
 }
 
+/**
+ * Adds an animation to the animations array.
+ * @param descendant Animation to add.
+ */
 SceneGraphNode.prototype.addAnimation = function(animation) {
     this.animations.push(animation);
 }
