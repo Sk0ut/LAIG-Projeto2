@@ -253,7 +253,6 @@ MyLSXScene.prototype.updateLight = function(lightId, enable) {
 MyLSXScene.prototype.update = function(currTime) {
 	if (this.lastUpdate != 0)
 		this.timer += (currTime - this.lastUpdate) / 1000;
-	//console.log(this.timer);
 }
 
 MyLSXScene.prototype.applyAnimation = function(node) {

@@ -74,8 +74,6 @@ LSXSceneGraph.prototype.parseSceneGraph = function(rootElement) {
         return error;
     }
 
-
-
     error = this.parseIllumination(rootElement);
     if (error) {
         return error;
@@ -108,6 +106,11 @@ LSXSceneGraph.prototype.parseSceneGraph = function(rootElement) {
 
     error = this.parseAnimations(rootElement);
     if(error) {
+    	return error;
+    }
+
+    error = this.checkGraphIntegrity();
+    if (error) {
     	return error;
     }
 
@@ -705,6 +708,23 @@ LSXSceneGraph.prototype.parseAnimation = function(animation) {
 		this.animations[id] = new LinearAnimation(id, span, controlPoints);
 	}
 	else return "Unknown animation type: " + type;
+}
+
+LSXSceneGraph.prototype.checkGraphIntegrity = function() {
+	for (key in this.nodes) {
+		var material = this.nodes[key].material;
+		var texture = this.nodes[key].texture;
+		var animations = this.nodes[key].animations;
+
+		if (!(material in this.materials) && material != "null")
+			return "Material " + material + " used in node " + key + " missing.";
+		if (!(texture in this.textures) && texture != "null" && texture != "clear")
+			return "Texture " + texture + " used in node " + key + " missing";		
+
+		for (var i = 0; i < animations.length; ++i)
+			if (!(animations[i].id in this.animations))
+				return "Animation " + animations[i].id + " used in node " + key + "missing";
+	}
 }
 
 
