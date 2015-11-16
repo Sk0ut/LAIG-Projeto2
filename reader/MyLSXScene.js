@@ -95,7 +95,7 @@ MyLSXScene.prototype.onGraphLoaded = function ()
 
     for (var i = 0; i < this.graph.lights.length; ++i) {
     	this.lights.push(this.graph.lights[i]);
-    	this.lights[i].setVisible(true);
+    	this.lights[i].setVisible(false);
     	this.lightsEnabled[this.lights[i]._id] = this.lights[i].enabled;
     }
 
