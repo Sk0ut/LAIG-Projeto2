@@ -236,10 +236,23 @@ LSXReader.prototype.getTriangle = function(element, attributeName, required) {
     return this.getArrayOfFloats(element, attributeName, 9, required);
 }
 
+/**
+ * Parses a the center from a circular animation from the LSX file.
+ * @param element Element to parse.
+ * @param attributeName The attribute's name.
+ * @param required Whether or not the method should write an error message if element is not provided.
+ * @returns {*} null on error, array of triangle args otherwise.
+ */
 LSXReader.prototype.getCenter = function(element, attributeName,required) {
     return this.getArrayOfFloats(element, attributeName, 3, required);
 }
 
+/**
+ * Parses a plane leaf from the LSX file.
+ * @param element Element to parse.
+ * @param required Whether or not the method should write an error message if element is not provided.
+ * @returns {*} null on error, array of triangle args otherwise.
+ */
 LSXReader.prototype.getPlane = function(element, required) {
     if(required == undefined)
         required = true;
@@ -268,6 +281,12 @@ LSXReader.prototype.getPlane = function(element, required) {
     return argsValue;
 }
 
+/**
+ * Parses a patch leaf from the LSX file.
+ * @param element Element to parse.
+ * @param required Whether or not the method should write an error message if element is not provided.
+ * @returns {*} null on error, array of triangle args otherwise.
+ */
 LSXReader.prototype.getPatch = function(element, required){
     if(required == undefined)
         required = true;

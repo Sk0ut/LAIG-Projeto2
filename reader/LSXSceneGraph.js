@@ -662,6 +662,11 @@ LSXSceneGraph.prototype.parseNode = function(node) {
 	}
 }
 
+/**
+ * Parses the animations element from LSX file.
+ * @param rootElement The root element.
+ * @returns {*} String indicating the error on failure, nothing otherwise.
+ */
 LSXSceneGraph.prototype.parseAnimations = function(rootElement) {
 	var elems =  rootElement.getElementsByTagName("ANIMATIONS");
 
@@ -681,6 +686,11 @@ LSXSceneGraph.prototype.parseAnimations = function(rootElement) {
 	}
 }
 
+/**
+ * Parses an animation.
+ * @param node Animation to parse
+ * @returns {string} String indicating the error on failure, nothing otherwise.
+ */
 LSXSceneGraph.prototype.parseAnimation = function(animation) {
 	var id = this.reader.getString(animation, "id");
 	if (id in this.animations)

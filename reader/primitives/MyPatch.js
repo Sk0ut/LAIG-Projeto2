@@ -1,3 +1,11 @@
+/**
+ * @param scene The scene to which this cylinder belongs.
+ * @param order The order of the patch.
+ * @param partsU Number of parts along U.
+ * @param partsV Number of parts along V.
+ * @param controlPoints The patch's control points.
+ * @constructor MyPatch constructor.
+ */
 function MyPatch(scene, order, partsU, partsV, controlPoints){
 
 	var controlPointsSurface = [];
@@ -35,6 +43,9 @@ function MyPatch(scene, order, partsU, partsV, controlPoints){
 MyPatch.prototype = Object.create(CGFnurbsObject.prototype);
 MyPatch.prototype.constructor = MyPatch;
 
+/**
+ * fixes the texCoords along the s axis.
+ */
 MyPatch.prototype.fixTexCoords = function() {
 	for (var i = 0; i < this.texCoords.length; i += 2)
 		this.texCoords[i] = 1 - this.texCoords[i];
@@ -42,4 +53,9 @@ MyPatch.prototype.fixTexCoords = function() {
 	this.initGLBuffers();
 }
 
+/**
+ * texCoords scaling.
+ * @param ampS Scaling along the S axis.
+ * @param ampT Scaling along the T axis.
+ */
 MyPatch.prototype.scaleTexCoords = function(ampS, ampT) {}

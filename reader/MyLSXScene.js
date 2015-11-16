@@ -253,11 +253,19 @@ MyLSXScene.prototype.updateLight = function(lightId, enable) {
 	}
 }
 
+/**
+ *	Updates the scene's time.
+ *	@param currTime the current time in milliseconds
+ */
 MyLSXScene.prototype.update = function(currTime) {
 	if (this.lastUpdate != 0)
 		this.timer += (currTime - this.lastUpdate) / 1000;
 }
 
+/**
+ *	Applies an animation to a node.
+ *	@param node to apply the animation to.
+ */
 MyLSXScene.prototype.applyAnimation = function(node) {
 	if (node.animations.length == 0)
 		return;
