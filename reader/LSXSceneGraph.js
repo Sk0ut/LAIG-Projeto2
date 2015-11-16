@@ -722,7 +722,7 @@ LSXSceneGraph.prototype.checkGraphIntegrity = function() {
 			return "Texture " + texture + " used in node " + key + " missing";		
 
 		for (var i = 0; i < animations.length; ++i)
-			if (!(animations[i].id in this.animations))
+			if (!(animations[i] in this.animations))
 				return "Animation " + animations[i].id + " used in node " + key + "missing";
 	}
 }

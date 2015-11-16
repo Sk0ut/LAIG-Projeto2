@@ -22,8 +22,8 @@ LinearAnimation.prototype.init = function() {
         var projectionXZ = vec3.fromValues(vector[0], 0, vector[2]);
 
         if (vec3.length(projectionXZ) > 0) {
-            var sign = projectionXZ[0] < 0 ? -1 : 1;
-            this.rotations[i] = sign * Math.acos(vec3.dot(projectionXZ, vec3.fromValues(0, 0, 1))/ vec3.length(projectionXZ));
+            var sign = projectionXZ[2] < 0 ? 1 : -1;
+            this.rotations[i] = sign * Math.acos(vec3.dot(projectionXZ, vec3.fromValues(1, 0, 0))/ vec3.length(projectionXZ));
         } else {
             this.rotations[i] = (i == 0 ? 0 : this.rotations[i - 1]);  
         }
