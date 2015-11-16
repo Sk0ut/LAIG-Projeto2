@@ -203,13 +203,40 @@
     <LEAF id="sphere" type="sphere" args="1.0 20 20" />
     <LEAF id="lamp" type="cylinder" args="1.0 0.5 0.1 20 20" />
     <LEAF id="plane" type="plane" parts="20" />
-    <LEAF id="patch" type="patch" order="1" partsU="20" partsV="20">
-        <CONTROLPOINT x="0.5" y="0" z="-0.5" />
-        <CONTROLPOINT x="0.5" y="0" z="0.5" />
-        <CONTROLPOINT x="-0.5" y="0" z="-0.5" />
-        <CONTROLPOINT x="-0.5" y="0" z="0.5" />
+    <LEAF id="dome" type="patch" order="2" partsU="20" partsV="20">
+        <CONTROLPOINT x="0.5" y="0" z="0.0" />
+        <CONTROLPOINT x="0.5" y="0" z="0.0" />
+		<CONTROLPOINT x="0.5" y="0" z="0.0" />
+		<CONTROLPOINT x="0" y="0" z="-1" />
+		<CONTROLPOINT x="0" y="10" z="0" />
+		<CONTROLPOINT x="0" y="0" z="1" />
+        <CONTROLPOINT x="-0.5" y="0" z="0" />
+		<CONTROLPOINT x="-0.5" y="0" z="0" />
+        <CONTROLPOINT x="-0.5" y="0" z="0" />
     </LEAF>
-	<LEAF id="terrain" type="terrain" texture="textures/terrainTexture.png" heightmap="textures/terrainHeightmap.png" />
+	<LEAF id="frontBody" type="patch" order="2" partsU="20" partsV="20">
+        <CONTROLPOINT x="-0.5" y="0" z="0.0" />
+        <CONTROLPOINT x="-0.5" y="0.5" z="0.0" />
+		<CONTROLPOINT x="-0.5" y="1" z="0.0" />
+		<CONTROLPOINT x="0" y="0" z="1" />
+		<CONTROLPOINT x="0" y="0.5" z="1" />
+		<CONTROLPOINT x="0" y="1" z="1" />
+        <CONTROLPOINT x="0.5" y="0" z="0.0" />
+		<CONTROLPOINT x="0.5" y="0.5" z="0" />
+        <CONTROLPOINT x="0.5" y="1" z="0.0" />
+	</LEAF>
+	<LEAF id="backBody" type="patch" order="2" partsU="20" partsV="20">
+        <CONTROLPOINT x="0.5" y="0" z="0.0" />
+        <CONTROLPOINT x="0.5" y="0.5" z="0.0" />
+		<CONTROLPOINT x="0.5" y="1" z="0.0" />
+		<CONTROLPOINT x="0" y="0" z="-1" />
+		<CONTROLPOINT x="0" y="0.5" z="-1" />
+		<CONTROLPOINT x="0" y="1" z="-1" />
+        <CONTROLPOINT x="-0.5" y="0" z="0.0" />
+		<CONTROLPOINT x="-0.5" y="0.5" z="0" />
+        <CONTROLPOINT x="-0.5" y="1" z="0.0" />
+	</LEAF>
+	<LEAF id="terrain" type="terrain" texture="textures/marsTerrain.png" heightmap="textures/marsHeightmap.png" />
 </LEAVES>
 
 
@@ -219,14 +246,16 @@
     <NODE id="sofabosta">
         <MATERIAL id="null" />
         <TEXTURE id="null" /> 
-
-		<SCALE sx="5" sy="2" sz="5" />
-		<TRANSLATION x="0.5" y="0" z="0.5" />
+		
+		<ROTATION axis="y" angle="90" />
 		
         <DESCENDANTS>
-            <DESCENDANT id="terrain" />
+			<!--<DESCENDANT id="dome" />
+            <DESCENDANT id="frontBody" />
+			<DESCENDANT id="backBody" /> -->
+			<DESCENDANT id="sofa" />
         </DESCENDANTS>
-
+		<ANIMATIONREF id="OMGAMesaVoa" />
     </NODE>
 
 

@@ -95,7 +95,7 @@ MyLSXScene.prototype.onGraphLoaded = function ()
 
     for (var i = 0; i < this.graph.lights.length; ++i) {
     	this.lights.push(this.graph.lights[i]);
-    	this.lights[i].setVisible(true);
+    	this.lights[i].setVisible(false);
     	this.lightsEnabled[this.lights[i]._id] = this.lights[i].enabled;
     }
 
@@ -253,14 +253,22 @@ MyLSXScene.prototype.updateLight = function(lightId, enable) {
 MyLSXScene.prototype.update = function(currTime) {
 	if (this.lastUpdate != 0)
 		this.timer += (currTime - this.lastUpdate) / 1000;
-	//console.log(this.timer);
 }
 
 MyLSXScene.prototype.applyAnimation = function(node) {
-	if (node.animation == "null")
+	if (node.animations.length == 0)
 		return;
-	var animation = this.graph.animations[node.animation];
-	var animationMatrix = animation.calculateMatrix(this.timer);
+
+	var t = this.timer;
+	var animationIndex;
+	for (animationIndex = 0; animationIndex < node.animations.length - 1; ++animationIndex) {
+		if (t < this.graph.animations[node.animations[animationIndex]].span)
+			break;
+		t -= this.graph.animations[node.animations[animationIndex]].span;
+	}
+	var animation = this.graph.animations[node.animations[animationIndex]];
+
+	var animationMatrix = animation.calculateMatrix(t);
 
 	this.multMatrix(animationMatrix);
 }

@@ -17,7 +17,7 @@ CircularAnimation.prototype.init = function() {
 	mat4.identity(this.initialTransformation);
 	mat4.rotateY(this.initialTransformation, this.initialTransformation, this.startAngle);
 	mat4.translate(this.initialTransformation, this.initialTransformation,
-				   vec3.fromValues(0, 0, this.radius));
+				   vec3.fromValues(this.radius, 0, 0));
 	
 	mat4.rotateY(this.initialTransformation, this.initialTransformation,
 				this.rotAngle > 0 ? Math.PI / 2 : - Math.PI / 2);
