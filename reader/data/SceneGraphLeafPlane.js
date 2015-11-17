@@ -1,7 +1,7 @@
 /**
- * @param id Node identification
- * @param partsV Divisions across the U and V axis
  * @constructor SceneGraph plane leaf constructor
+ * @param id {string} Node identification
+ * @param partsV {number} Divisions across the U and V axis
  */
 function SceneGraphLeafPlane(id, parts) {
     SceneGraphLeaf.call(this, id, "plane");

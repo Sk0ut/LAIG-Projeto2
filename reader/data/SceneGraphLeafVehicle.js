@@ -1,5 +1,5 @@
 /**
- * @param id Node identification
+ * @param id {string} Node identification
  * @constructor SceneGraph vehicle leaf constructor
  */
 function SceneGraphLeafVehicle(id) {

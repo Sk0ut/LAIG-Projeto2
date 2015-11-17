@@ -1,7 +1,7 @@
 /**
- * @param scene The scene to which this material belongs.
- * @param id Material identification.
  * @constructor SceneGraph material constructor.
+ * @param scene {CGFScene} The scene to which this material belongs.
+ * @param id {string} Material identification.
  */
 function SceneMaterial(scene, id) {
     CGFappearance.call(this, scene);

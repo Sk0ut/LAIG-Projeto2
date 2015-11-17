@@ -1,11 +1,11 @@
 /**
- * @param id Node identification
- * @param height Cylinder height
- * @param bottomRadius Cylinder bottom radius
- * @param topRadius Cylinder top radius
- * @param slices Number of divisions of each circle
- * @param stacks Number of divisions of the cylinder
  * @constructor SceneGraph cylinder leaf constructor
+ * @param id {string} Node identification
+ * @param height {number} Cylinder height
+ * @param bottomRadius {number} Cylinder bottom radius
+ * @param topRadius {number} Cylinder top radius
+ * @param slices {number} Number of divisions of each circle
+ * @param stacks {number} Number of divisions of the cylinder
  */
 
 function SceneGraphLeafCylinder(id, height, bottomRadius, topRadius, slices, stacks) {

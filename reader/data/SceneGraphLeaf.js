@@ -1,7 +1,7 @@
 /**
- * @param id Node identification
- * @param type Type of primitive
  * @constructor SceneGraph leaf constructor
+ * @param id (string) Node identification
+ * @param type (string) Type of primitive
  */
 
 function SceneGraphLeaf(id, type) {

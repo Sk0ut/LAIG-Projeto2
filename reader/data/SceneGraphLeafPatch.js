@@ -1,10 +1,10 @@
 /**
- * @param id Node identification
- * @param order Patch curves degree
- * @param partsU Divisions across the U axis
- * @param partsV Divisions across the V axis
- * @param controlPoints Array of 3D coordinates for the NURBS controlPoints
  * @constructor SceneGraph patch leaf constructor
+ * @param id {string} Node identification
+ * @param order {number} Patch curves degree
+ * @param partsU {number} Divisions across the U axis
+ * @param partsV {number} Divisions across the V axis
+ * @param controlPoints {array} Array of 3D coordinates for the NURBS controlPoints
  */
 function SceneGraphLeafPatch(id, order, partsU, partsV, controlPoints) {
     SceneGraphLeaf.call(this, id, "patch");

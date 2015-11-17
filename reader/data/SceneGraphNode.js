@@ -1,6 +1,6 @@
 /**
- * @param id Node identification.
  * @constructor SceneGraph node constructor.
+ * @param id {string} Node identification.
  */
 function SceneGraphNode(id) {
     this.id = id;

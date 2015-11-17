@@ -1,8 +1,8 @@
 /**
- * @param id Node identification.
- * @param radius Sphere radius.
- * @param slices Number of divisions of each circle of the sphere.
- * @param stacks Number of divisions of the sphere.
+ * @param id {string} Node identification.
+ * @param radius {string} Sphere radius.
+ * @param slices {number} Number of divisions of each circle of the sphere.
+ * @param stacks {number} Number of divisions of the sphere.
  * @constructor SceneGraph sphere leaf constructor.
  */
 

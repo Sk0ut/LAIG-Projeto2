@@ -1,8 +1,8 @@
 /**
- * @param scene The scene to which this texture belongs.
- * @param url Path to the texture image.
- * @param id Texture identification.
  * @constructor SceneGraph texture constructor.
+ * @param scene {CGFScene} The scene to which this texture belongs.
+ * @param url {string} Path to the texture image.
+ * @param id {string} Texture identification.
  */
 function SceneTexture(scene, url, id) {
     CGFtexture.call(this, scene, url);
