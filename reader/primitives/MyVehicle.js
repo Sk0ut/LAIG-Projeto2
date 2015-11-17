@@ -1,3 +1,7 @@
+/**
+ * @param scene The scene to which this sphere belongs.
+ * @constructor MyVehicle constructor.
+ */
 function MyVehicle(scene){
     CGFobject.call(this,scene);
 
@@ -21,6 +25,9 @@ function MyVehicle(scene){
 MyVehicle.prototype = Object.create(CGFobject.prototype);
 MyVehicle.prototype.constructor = MyVehicle;
 
+/** 
+ * Display function of the scene to render this object.
+ */
 MyVehicle.prototype.display = function() {
 
     this.scene.pushMatrix();
@@ -40,4 +47,9 @@ MyVehicle.prototype.display = function() {
     }
 }
 
+/**
+ * texCoords scaling.
+ * @param ampS Scaling along the S axis.
+ * @param ampT Scaling along the T axis.
+ */
 MyVehicle.prototype.scaleTexCoords = function(ampS, ampT) {}

@@ -720,6 +720,9 @@ LSXSceneGraph.prototype.parseAnimation = function(animation) {
 	else return "Unknown animation type: " + type;
 }
 
+/**
+ * Checks the graph for errors.
+ */
 LSXSceneGraph.prototype.checkGraphIntegrity = function() {
 	for (key in this.nodes) {
 		var material = this.nodes[key].material;
