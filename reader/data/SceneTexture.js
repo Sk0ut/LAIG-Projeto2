@@ -16,8 +16,8 @@ SceneTexture.prototype.constructor = SceneTexture;
 
 /**
  * AmplifyFactor setter.
- * @param s S value to set.
- * @param t T value to set.
+ * @param s {number} S value to set.
+ * @param t {number} T value to set.
  */
 SceneTexture.prototype.setAmplifyFactor = function(s, t) {
     this.amplifyFactor.s = s;

@@ -17,7 +17,7 @@ SceneGraphNode.prototype.constructor = SceneGraphNode;
 
 /**
  * Material setter.
- * @param material Material to set.
+ * @param material {string} Material to set.
  */
 SceneGraphNode.prototype.setMaterial = function(material) {
     this.material = material;
@@ -25,7 +25,7 @@ SceneGraphNode.prototype.setMaterial = function(material) {
 
 /**
  * Texture setter.
- * @param texture Texture to set.
+ * @param texture {string} Texture to set.
  */
 SceneGraphNode.prototype.setTexture = function(texture) {
      this.texture = texture;
@@ -33,7 +33,7 @@ SceneGraphNode.prototype.setTexture = function(texture) {
 
 /**
  * Adds a descendant to the descendants array.
- * @param descendant Descendant to add.
+ * @param descendant {string} Descendant to add.
  */
 SceneGraphNode.prototype.addDescendant = function(descendant) {
     this.descendants.push(descendant);
@@ -41,14 +41,14 @@ SceneGraphNode.prototype.addDescendant = function(descendant) {
 
 /**
  * Adds an animation to the animations array.
- * @param descendant Animation to add.
+ * @param descendant {string} Animation to add.
  */
 SceneGraphNode.prototype.addAnimation = function(animation) {
     this.animations.push(animation);
 }
 /**
  * Applies a rotation to the node around the X axis.
- * @param rad Rotation angle in radians.
+ * @param rad {number} Rotation angle in radians.
  */
 SceneGraphNode.prototype.rotateX = function(rad) {
     mat4.rotateX(this.transformationMatrix, this.transformationMatrix, rad);
@@ -56,7 +56,7 @@ SceneGraphNode.prototype.rotateX = function(rad) {
 
 /**
  * Applies a rotation to the node around the Y axis.
- * @param rad Rotation angle in radians.
+ * @param rad {number} Rotation angle in radians.
  */
 SceneGraphNode.prototype.rotateY = function(rad) {
     mat4.rotateY(this.transformationMatrix, this.transformationMatrix, rad);
@@ -64,7 +64,7 @@ SceneGraphNode.prototype.rotateY = function(rad) {
 
 /**
  * Applies a rotation to the node around the Z axis.
- * @param rad Rotation angle in radians.
+ * @param rad {number} Rotation angle in radians.
  */
 SceneGraphNode.prototype.rotateZ = function(rad) {
     mat4.rotateZ(this.transformationMatrix, this.transformationMatrix, rad);
@@ -72,9 +72,9 @@ SceneGraphNode.prototype.rotateZ = function(rad) {
 
 /**
  * Applies scaling to the node.
- * @param sx X scale factor.
- * @param sy Y scale factor.
- * @param sz Z scale factor.
+ * @param sx {number} X scale factor.
+ * @param sy {number} Y scale factor.
+ * @param sz {number} Z scale factor.
  */
 SceneGraphNode.prototype.scale = function(sx, sy, sz) {
     mat4.scale(this.transformationMatrix, this.transformationMatrix, vec3.fromValues(sx,sy,sz));
@@ -82,9 +82,9 @@ SceneGraphNode.prototype.scale = function(sx, sy, sz) {
 
 /**
  * Applies a translation to the node.
- * @param x X translation value.
- * @param y Y translation value.
- * @param z Z translation value.
+ * @param x {number} X translation value.
+ * @param y {number} Y translation value.
+ * @param z {number} Z translation value.
  */
 
 SceneGraphNode.prototype.translate = function(x, y, z) {
