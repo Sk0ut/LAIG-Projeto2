@@ -1,10 +1,11 @@
 /**
- * @param scene The scene to which this cylinder belongs.
- * @param order The order of the patch.
- * @param partsU Number of parts along U.
- * @param partsV Number of parts along V.
- * @param controlPoints The patch's control points.
- * @constructor MyPatch constructor.
+ * MyPatch constructor.
+ * @constructor
+ * @param scene {CGFscene} The scene to which this cylinder belongs.
+ * @param order {Integer} The order of the patch.
+ * @param partsU {Integer} Number of parts along U.
+ * @param partsV {Integer} Number of parts along V.
+ * @param controlPoints {Array} The patch's control points.
  */
 function MyPatch(scene, order, partsU, partsV, controlPoints){
 
@@ -54,8 +55,6 @@ MyPatch.prototype.fixTexCoords = function() {
 }
 
 /**
- * texCoords scaling.
- * @param ampS Scaling along the S axis.
- * @param ampT Scaling along the T axis.
+ * texCoords scaling (no effect).
  */
-MyPatch.prototype.scaleTexCoords = function(ampS, ampT) {}
+MyPatch.prototype.scaleTexCoords = function() {}

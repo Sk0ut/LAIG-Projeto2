@@ -1,9 +1,10 @@
 /**
- * @param scene The scene to which this sphere belongs.
- * @param radius Sphere radius.
- * @param slices Number of divisions of each circle of the sphere.
- * @param stacks Number of divisions of the sphere.
- * @constructor MySphere constructor.
+ * MySphere constructor.
+ * @constructor
+ * @param scene {CGFscene} The scene to which this sphere belongs.
+ * @param radius {Float} Sphere radius.
+ * @param slices {Integer} Number of divisions of each circle of the sphere.
+ * @param stacks {Integer} Number of divisions of the sphere.
  */
  function MySphere(scene, radius, slices, stacks) {
  	CGFobject.call(this,scene);
@@ -51,10 +52,6 @@
  };
 
 /**
- * texCoords scaling.
- * @param ampS Scaling along the S axis.
- * @param ampT Scaling along the T axis.
+ * texCoords scaling (no effect).
  */
-MySphere.prototype.scaleTexCoords = function(ampS, ampT) {
-	this.updateTexCoordsGLBuffers();
-}
+MySphere.prototype.scaleTexCoords = function() {}

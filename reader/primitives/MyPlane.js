@@ -1,7 +1,8 @@
 /**
- * @param scene The scene to which this cylinder belongs.
- * @param parts Number of parts of the plane along each coordinate.
- * @constructor MyPlane constructor.
+ * MyPlane constructor.
+ * @constructor
+ * @param scene {CGFscene} The scene to which this cylinder belongs.
+ * @param parts {Integer} Number of parts of the plane along each coordinate.
  */
 function MyPlane(scene, parts){
 	var nurbsSurface = new CGFnurbsSurface(1, 1, [0,0,1,1], [0,0,1,1], [[[0.5,0,-0.5,1],[0.5,0,0.5,1]], [[-0.5,0,-0.5,1], [-0.5,0,0.5,1]]]);
@@ -27,8 +28,6 @@ MyPlane.prototype.fixTexCoords = function() {
 }
 
 /**
- * texCoords scaling.
- * @param ampS Scaling along the S axis.
- * @param ampT Scaling along the T axis.
+ * texCoords scaling (no effect).
  */
-MyPlane.prototype.scaleTexCoords = function(ampS, ampT) {}
+MyPlane.prototype.scaleTexCoords = function() {}
