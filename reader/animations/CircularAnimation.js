@@ -39,6 +39,7 @@ CircularAnimation.prototype.init = function() {
 /** 
  * Calculates the matrix while the animation is running.
  * @param t {Float} The current time.
+ * @return {mat4} Animation matrix.
  */
 CircularAnimation.prototype.calculateMatrix = function(t) {
 
