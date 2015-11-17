@@ -11,7 +11,7 @@ MyInterface.prototype.constructor = MyInterface;
 
 /**
  * Initializes the interface.
- * @param application Application this interface belongs to.
+ * @param application {CGFapllication} Application this interface belongs to.
  */
 MyInterface.prototype.init = function(application) {
 	// call CGFinterface init
@@ -39,7 +39,7 @@ MyInterface.prototype.onGraphLoaded = function(){
 
 /**
  * Scene setter.
- * @param scene Scene to set.
+ * @param scene {CGFscene} Scene to set.
  */
 MyInterface.prototype.setScene = function(scene) {
     this.scene = scene;

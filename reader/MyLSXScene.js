@@ -11,7 +11,7 @@ MyLSXScene.prototype.constructor = MyLSXScene;
 
 /**
  * Initializes the scene.
- * @param application Application this scene belongs to.
+ * @param application {CGFapplication} Application this scene belongs to.
  */
 MyLSXScene.prototype.init = function (application) {
     CGFscene.prototype.init.call(this, application);
@@ -40,7 +40,7 @@ MyLSXScene.prototype.init = function (application) {
 
 /**
  * Interface setter.
- * @param myinterface Interface to set.
+ * @param myinterface {CGFinterface} Interface to set.
  */
 MyLSXScene.prototype.setInterface = function(myinterface) {
 	this.myinterface = myinterface;
@@ -191,9 +191,9 @@ MyLSXScene.prototype.drawSceneGraph = function() {
 
 /**
  * Draws the nodes represented in the SceneGraph.
- * @param node Node to draw.
- * @param parentMaterial Parent node's material.
- * @param parentTexture Parent texture's material.
+ * @param node {String} Node to draw.
+ * @param parentMaterial {String} Parent node's material.
+ * @param parentTexture {String} Parent node's texture.
  */
 MyLSXScene.prototype.drawNode = function(node, parentMaterial, parentTexture) {
 	if (node in this.primitives) {
@@ -241,8 +241,8 @@ MyLSXScene.prototype.drawNode = function(node, parentMaterial, parentTexture) {
 
 /**
  * Updates the scene's lights.
- * @param lightId Identification of the light to update.
- * @param enable Whether the light is enabled or not.
+ * @param lightId {String} Identification of the light to update.
+ * @param enable {Boolean} Whether the light is enabled or not.
  */
 MyLSXScene.prototype.updateLight = function(lightId, enable) {
 	for (var i = 0; i < this.lights.length; ++i) {
@@ -263,7 +263,7 @@ MyLSXScene.prototype.resetTimer = function() {
 
 /**
  *	Updates the scene's time.
- *	@param currTime the current time in milliseconds
+ *	@param currTime {Float} The current time in milliseconds.
  */
 MyLSXScene.prototype.update = function(currTime) {
 	if (this.lastUpdate != 0)
@@ -272,7 +272,7 @@ MyLSXScene.prototype.update = function(currTime) {
 
 /**
  *	Applies an animation to a node.
- *	@param node to apply the animation to.
+ *	@param node {SceneGraphNode} Node to apply the animation to.
  */
 MyLSXScene.prototype.applyAnimation = function(node) {
 	if (node.animations.length == 0)
