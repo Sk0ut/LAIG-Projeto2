@@ -1,4 +1,5 @@
 /**
+ * Animation class.
  * @param id The animation id.
  * @param span The animation's span
  * @param type The animation's type (circular/linear)

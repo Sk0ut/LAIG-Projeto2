@@ -1,11 +1,13 @@
 /**
 '* CircularAnimation class.
+ * @param id The animation's id.
  * @param span The animation's span.
  * @param center The animation's center of rotation.
  * @param startAngle The animation's start angle.
  * @param rotAngle The animation's rotation.
  * @param radius The animation's radius.
  */
+
 function CircularAnimation(id, span, center, startAngle, rotAngle, radius) {
     Animation.call(this, id, span, "circular");
     this.id = id;
@@ -20,6 +22,9 @@ function CircularAnimation(id, span, center, startAngle, rotAngle, radius) {
 CircularAnimation.prototype = Object.create(Animation.prototype);
 CircularAnimation.prototype.constructor = CircularAnimation;
 
+/**
+'* Initiates the animation.
+ */
 CircularAnimation.prototype.init = function() {
 	this.initialTransformation = mat4.create();
 	mat4.identity(this.initialTransformation);
@@ -31,6 +36,10 @@ CircularAnimation.prototype.init = function() {
 				this.rotAngle > 0 ? Math.PI / 2 : - Math.PI / 2);
 }
 
+/** 
+ * Calculates the matrix while the animation is running.
+ * t the current time.
+ */
 CircularAnimation.prototype.calculateMatrix = function(t) {
 
 	t = Math.min(t, this.span);
