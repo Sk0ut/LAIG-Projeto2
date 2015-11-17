@@ -1,5 +1,6 @@
 /**
- * @constructor SceneGraph initials constructor.
+ * SceneGraph initials constructor.
+ * @constructor
  */
 function SceneInitials() {
     this.frustum = {near: 0,

@@ -1,5 +1,6 @@
 /**
- * @constructor MyInterface constructor.
+ * MyInterface constructor.
+ * @constructor
  */
 function MyInterface() {
 	CGFinterface.call(this);

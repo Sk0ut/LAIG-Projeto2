@@ -1,5 +1,6 @@
 /**
- * @constructor SceneGraph material constructor.
+ * SceneGraph material constructor.
+ * @constructor
  * @param scene {CGFScene} The scene to which this material belongs.
  * @param id {string} Material identification.
  */

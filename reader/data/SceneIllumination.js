@@ -1,5 +1,6 @@
 /**
- * @constructor SceneGraph illumination constructor.
+ * SceneGraph illumination constructor.
+ * @constructor
  */
 function SceneIllumination() {
     this.ambient = [0, 0, 0, 0];

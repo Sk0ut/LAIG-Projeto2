@@ -1,5 +1,6 @@
 /**
- * @constructor SceneGraph triangle leaf constructor
+ * SceneGraph triangle leaf constructor
+ * @constructor
  * @param id {string} Node identification
  * @param v1x {number} First point x coordinate
  * @param v1y {number} First point y coordinate

@@ -1,5 +1,6 @@
 /**
-'* CircularAnimation class.
+ * CircularAnimation constructor.
+ * @constructor
  * @param id The animation's id.
  * @param span The animation's span.
  * @param center The animation's center of rotation.
@@ -7,7 +8,6 @@
  * @param rotAngle The animation's rotation.
  * @param radius The animation's radius.
  */
-
 function CircularAnimation(id, span, center, startAngle, rotAngle, radius) {
     Animation.call(this, id, span, "circular");
     this.id = id;
@@ -23,7 +23,7 @@ CircularAnimation.prototype = Object.create(Animation.prototype);
 CircularAnimation.prototype.constructor = CircularAnimation;
 
 /**
-'* Initiates the animation.
+ * Initiates the animation.
  */
 CircularAnimation.prototype.init = function() {
 	this.initialTransformation = mat4.create();

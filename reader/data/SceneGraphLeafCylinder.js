@@ -1,5 +1,6 @@
 /**
- * @constructor SceneGraph cylinder leaf constructor
+ * SceneGraph cylinder leaf constructor
+ * @constructor
  * @param id {string} Node identification
  * @param height {number} Cylinder height
  * @param bottomRadius {number} Cylinder bottom radius

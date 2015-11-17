@@ -1,5 +1,6 @@
 /**
- * @constructor SceneGraph lights constructor.
+ * SceneGraph light constructor.
+ * @constructor
  * @param scene {CGFScene} The scene to which this light belongs.
  * @param an {number} Shader light array index.
  * @param id {string} Light identification.

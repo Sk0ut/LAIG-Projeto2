@@ -1,6 +1,7 @@
 /**
+ * SceneGraph vehicle leaf constructor
+ * @constructor
  * @param id {string} Node identification
- * @constructor SceneGraph vehicle leaf constructor
  */
 function SceneGraphLeafVehicle(id) {
     SceneGraphLeaf.call(this, id, "vehicle");

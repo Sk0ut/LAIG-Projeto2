@@ -1,7 +1,8 @@
 /**
+ * LSXSceneGraph constructor.
+ * @constructor
  * @param filename The lsx url name.
  * @param scene The scene to which the SceneGraph belongs.
- * @constructor LSXSceneGraph constructor.
  */
 function LSXSceneGraph(filename, scene) {
     if (typeof scene.onGraphLoaded !== 'function') {

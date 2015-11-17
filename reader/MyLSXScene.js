@@ -1,5 +1,6 @@
 /**
- * @constructor MyLSXScene constructor.
+ * MyLSXScene constructor.
+ * @constructor
  */
 function MyLSXScene() {
     CGFscene.call(this);

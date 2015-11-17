@@ -1,5 +1,6 @@
 /**
- * @constructor SceneGraph texture constructor.
+ * SceneGraph texture constructor.
+ * @constructor
  * @param scene {CGFScene} The scene to which this texture belongs.
  * @param url {string} Path to the texture image.
  * @param id {string} Texture identification.

@@ -1,5 +1,6 @@
 /**
- * @constructor SceneGraph node constructor.
+ * SceneGraph node constructor.
+ * @constructor
  * @param id {string} Node identification.
  */
 function SceneGraphNode(id) {

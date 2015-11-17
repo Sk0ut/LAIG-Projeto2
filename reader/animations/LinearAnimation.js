@@ -1,5 +1,6 @@
 /**
-'* LinearAnimation class.
+ * LinearAnimation constructor.
+ * @constructor
  * @param id The animation's id.
  * @param span The animation's span.
  * @param controlPoints The animation's control points.
@@ -16,7 +17,7 @@ LinearAnimation.prototype = Object.create(Animation.prototype);
 LinearAnimation.prototype.constructor = LinearAnimation;
 
 /**
-'* Initiates the animation.
+ * Initiates the animation.
  */
 LinearAnimation.prototype.init = function() {
     if (this.controlPoints.length == 1)

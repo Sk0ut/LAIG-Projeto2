@@ -1,5 +1,6 @@
 /**
- * @constructor SceneGraph leaf constructor
+ * SceneGraph leaf constructor
+ * @constructor
  * @param id (string) Node identification
  * @param type (string) Type of primitive
  */
