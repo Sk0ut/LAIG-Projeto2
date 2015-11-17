@@ -1,12 +1,12 @@
 /**
  * CircularAnimation constructor.
  * @constructor
- * @param id The animation's id.
- * @param span The animation's span.
- * @param center The animation's center of rotation.
- * @param startAngle The animation's start angle.
- * @param rotAngle The animation's rotation.
- * @param radius The animation's radius.
+ * @param id {String} The animation's id.
+ * @param span {Float} The animation's span.
+ * @param center {vec3} The animation's center of rotation.
+ * @param startAngle {Float} The animation's start angle.
+ * @param rotAngle {Float} The animation's rotation.
+ * @param radius {Float} The animation's radius.
  */
 function CircularAnimation(id, span, center, startAngle, rotAngle, radius) {
     Animation.call(this, id, span, "circular");
@@ -38,7 +38,7 @@ CircularAnimation.prototype.init = function() {
 
 /** 
  * Calculates the matrix while the animation is running.
- * t the current time.
+ * @param t {Float} The current time.
  */
 CircularAnimation.prototype.calculateMatrix = function(t) {
 
