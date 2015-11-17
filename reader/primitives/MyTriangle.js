@@ -1,17 +1,17 @@
 /**
- * @param scene The scene to which this triangle belongs.
- * @param x1 First point x coordinate
- * @param y1 First point y coordinate
- * @param z1 First point z coordinate
- * @param x2 Second point x coordinate
- * @param y2 Second point y coordinate
- * @param z2 Second point z coordinate
- * @param x3 Third point x coordinate
- * @param y3 Third point y coordinate
- * @param z3 Third point z coordinate
- * @constructor MyTriangle constructor.
+ * MyTriangle constructor.
+ * @constructor
+ * @param scene {CGFscene} The scene to which this triangle belongs.
+ * @param x1 {Float} First point x coordinate
+ * @param y1 {Float} First point y coordinate
+ * @param z1 {Float} First point z coordinate
+ * @param x2 {Float} Second point x coordinate
+ * @param y2 {Float} Second point y coordinate
+ * @param z2 {Float} Second point z coordinate
+ * @param x3 {Float} Third point x coordinate
+ * @param y3 {Float} Third point y coordinate
+ * @param z3 {Float} Third point z coordinate
  */
-
 function MyTriangle(scene, x1,y1,z1,x2,y2,z2,x3,y3,z3){
     CGFobject.call(this,scene);
 
@@ -72,14 +72,13 @@ MyTriangle.prototype.initBuffers = function() {
 
 /**
  * texCoords scaling.
- * @param ampS Scaling along the S axis.
- * @param ampT Scaling along the T axis.
+ * @param ampS {Float} Scaling along the S axis.
+ * @param ampT {Float} Scaling along the T axis.
  */
 MyTriangle.prototype.scaleTexCoords = function(ampS, ampT) {
 	for (var i = 0; i < this.texCoords.length; i += 2) {
 		this.texCoords[i] = this.nonScaledTexCoords[i] / ampS;
 		this.texCoords[i + 1] = this.nonScaledTexCoords[i+1] / ampT;
 	}
-
 	this.updateTexCoordsGLBuffers();
 }

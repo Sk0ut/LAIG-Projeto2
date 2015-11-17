@@ -1,8 +1,9 @@
 /**
- * @param scene The scene to which this sphere belongs.
- * @param testureUrl Url of the texture
- * @param heightmapUrl Url of the heightmap texture
- * @constructor MyTerrain constructor.
+ * MyTerrain constructor.
+ * @constructor 
+ * @param scene {CGFscene} The scene to which this sphere belongs.
+ * @param testureUrl {String} Url of the texture
+ * @param heightmapUrl {String} Url of the heightmap texture
  */
 function MyTerrain(scene, textureUrl, heightmapUrl){
     CGFobject.call(this,scene);
@@ -35,8 +36,6 @@ MyTerrain.prototype.display = function() {
 }
 
 /**
- * texCoords scaling.
- * @param ampS Scaling along the S axis.
- * @param ampT Scaling along the T axis.
+ * texCoords scaling (no effect).
  */
-MyTerrain.prototype.scaleTexCoords = function(ampS, ampT) {}
+MyTerrain.prototype.scaleTexCoords = function() {}
