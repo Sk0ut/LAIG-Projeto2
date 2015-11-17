@@ -1,8 +1,8 @@
 /**
  * SceneGraph leaf constructor
  * @constructor
- * @param id (string) Node identification
- * @param type (string) Type of primitive
+ * @param id {string} Node identification
+ * @param type {string} Type of primitive
  */
 
 function SceneGraphLeaf(id, type) {
