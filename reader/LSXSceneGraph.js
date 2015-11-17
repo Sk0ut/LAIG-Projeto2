@@ -1,8 +1,8 @@
 /**
  * LSXSceneGraph constructor.
  * @constructor
- * @param filename The lsx url name.
- * @param scene The scene to which the SceneGraph belongs.
+ * @param filename {string} The lsx url name.
+ * @param scene {CGFScene} The scene to which the SceneGraph belongs.
  */
 function LSXSceneGraph(filename, scene) {
     if (typeof scene.onGraphLoaded !== 'function') {
@@ -62,7 +62,7 @@ LSXSceneGraph.prototype.onXMLReady=function()
 
 /**
  * SceneGraph parsing from LSX file.
- * @param rootElement The root element.
+ * @param rootElement {DOMElement} The root element.
  * @returns {string} String indicating the error on failure, nothing otherwise.
  */
 LSXSceneGraph.prototype.parseSceneGraph = function(rootElement) {
@@ -130,7 +130,7 @@ LSXSceneGraph.prototype.parseSceneGraph = function(rootElement) {
 
 /**
  * Parses the initials element from LSX file.
- * @param rootElement The root element.
+ * @param rootElement {DOMElement} The root element.
  * @returns {*} String indicating the error on failure, nothing otherwise.
  */
 LSXSceneGraph.prototype.parseInitials = function(rootElement) {
@@ -259,7 +259,7 @@ LSXSceneGraph.prototype.parseInitials = function(rootElement) {
 
 /**
  * Parses the illumination element from LSX file.
- * @param rootElement The root element.
+ * @param rootElement {DOMElement} The root element.
  * @returns {*} String indicating the error on failure, nothing otherwise.
  */
 LSXSceneGraph.prototype.parseIllumination = function(rootElement) {
@@ -302,7 +302,7 @@ LSXSceneGraph.prototype.parseIllumination = function(rootElement) {
 
 /**
  * Parses the lights element from LSX file.
- * @param rootElement The root element.
+ * @param rootElement {DOMElement} The root element.
  * @returns {*} String indicating the error on failure, nothing otherwise.
  */
 LSXSceneGraph.prototype.parseLights = function(rootElement) {
@@ -353,7 +353,7 @@ LSXSceneGraph.prototype.parseLights = function(rootElement) {
 
 /**
  * Parses the textures element from LSX file.
- * @param rootElement The root element.
+ * @param rootElement {DOMElement} The root element.
  * @returns {*} String indicating the error on failure, nothing otherwise.
  */
 LSXSceneGraph.prototype.parseTextures = function(rootElement) {
@@ -397,7 +397,7 @@ LSXSceneGraph.prototype.parseTextures = function(rootElement) {
 
 /**
  * Parses the materials element from LSX file.
- * @param rootElement The root element.
+ * @param rootElement {DOMElement} The root element.
  * @returns {*} String indicating the error on failure, nothing otherwise.
  */
 LSXSceneGraph.prototype.parseMaterials = function(rootElement) {
@@ -432,7 +432,7 @@ LSXSceneGraph.prototype.parseMaterials = function(rootElement) {
 
 /**
  * Parses the leaves element from LSX file.
- * @param rootElement The root element.
+ * @param rootElement {DOMElement} The root element.
  * @returns {*} String indicating the error on failure, nothing otherwise.
  */
 LSXSceneGraph.prototype.parseLeaves = function(rootElement) {
@@ -526,7 +526,7 @@ LSXSceneGraph.prototype.parseLeaves = function(rootElement) {
 
 /**
  * Parses the nodes element from LSX file.
- * @param rootElement The root element.
+ * @param rootElement {DOMElement} The root element.
  * @returns {*} String indicating the error on failure, nothing otherwise.
  */
 LSXSceneGraph.prototype.parseNodes = function(rootElement) {
@@ -572,7 +572,7 @@ LSXSceneGraph.prototype.parseNodes = function(rootElement) {
 
 /**
  * Parses a node.
- * @param node Node to parse
+ * @param node {DOMElement} Node to parse
  * @returns {string} String indicating the error on failure, nothing otherwise.
  */
 LSXSceneGraph.prototype.parseNode = function(node) {
@@ -665,7 +665,7 @@ LSXSceneGraph.prototype.parseNode = function(node) {
 
 /**
  * Parses the animations element from LSX file.
- * @param rootElement The root element.
+ * @param rootElement {DOMElement} The root element.
  * @returns {*} String indicating the error on failure, nothing otherwise.
  */
 LSXSceneGraph.prototype.parseAnimations = function(rootElement) {
@@ -689,7 +689,7 @@ LSXSceneGraph.prototype.parseAnimations = function(rootElement) {
 
 /**
  * Parses an animation.
- * @param node Animation to parse
+ * @param animation {DOMElement} Animation to parse
  * @returns {string} String indicating the error on failure, nothing otherwise.
  */
 LSXSceneGraph.prototype.parseAnimation = function(animation) {
@@ -745,7 +745,7 @@ LSXSceneGraph.prototype.checkGraphIntegrity = function() {
 
 /**
  * Callback to be executed on any read error
- * @param message Error message.
+ * @param message {string} Error message.
  */
  
 LSXSceneGraph.prototype.onXMLError=function (message) {

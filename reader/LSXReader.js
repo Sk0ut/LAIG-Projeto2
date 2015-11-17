@@ -11,8 +11,8 @@ LSXReader.prototype.constructor = LSXReader;
 
 /**
  * Parse RGBA values from LSX elements.
- * @param element element to parse.
- * @param required Whether or not the method should write an error message if element is not provided.
+ * @param element {DOMElement} element to parse.
+ * @param required {boolean} Whether or not the method should write an error message if element is not provided.
  * @returns {*} null on error, rgba array otherwise
  */
 LSXReader.prototype.getRGBA = function(element, required) {
@@ -53,10 +53,10 @@ LSXReader.prototype.getRGBA = function(element, required) {
 
 /**
  * Parse array of floats from LSX element's attribute.
- * @param element Element to parse.
- * @param attributeName The attribute's name.
- * @param numFloats Number of floats to parse.
- * @param required Whether or not the method should write an error message if element is not provided.
+ * @param element {DOMElement} Element to parse.
+ * @param attributeName {string} The attribute's name.
+ * @param numFloats {number} Number of floats to parse.
+ * @param required {boolean} Whether or not the method should write an error message if element is not provided.
  * @returns {*} Null on failure, an array of floats otherwise.
  */
 LSXReader.prototype.getArrayOfFloats = function(element, attributeName, numFloats, required) {
@@ -99,9 +99,9 @@ LSXReader.prototype.getArrayOfFloats = function(element, attributeName, numFloat
 
 /**
  * Parses a rectangle leaf from the LSX file.
- * @param element Element to parse.
- * @param attributeName The attribute's name.
- * @param required Whether or not the method should write an error message if element is not provided.
+ * @param element {DOMElement} Element to parse.
+ * @param attributeName {string} The attribute's name.
+ * @param required {boolean} Whether or not the method should write an error message if element is not provided.
  * @returns {*} null on error, array of rectangle args otherwise.
  */
 LSXReader.prototype.getRectangle = function(element, attributeName, required) {
@@ -110,9 +110,9 @@ LSXReader.prototype.getRectangle = function(element, attributeName, required) {
 
 /**
  * Parses a cylinder leaf from the LSX file.
- * @param element Element to parse.
- * @param attributeName The attribute's name.
- * @param required Whether or not the method should write an error message if element is not provided.
+ * @param element {DOMElement} Element to parse.
+ * @param attributeName {string} The attribute's name.
+ * @param required {boolean} Whether or not the method should write an error message if element is not provided.
  * @returns {*} null on error, array of cylinder args otherwise.
  */
 
@@ -186,9 +186,9 @@ LSXReader.prototype.getCylinder = function(element, attributeName, required) {
 
 /**
  * Parses a sphere leaf from the LSX file.
- * @param element Element to parse.
- * @param attributeName The attribute's name.
- * @param required Whether or not the method should write an error message if element is not provided.
+ * @param element {DOMElement} Element to parse.
+ * @param attributeName {string} The attribute's name.
+ * @param required {boolean} Whether or not the method should write an error message if element is not provided.
  * @returns {*} null on error, array of sphere args otherwise.
  */
 LSXReader.prototype.getSphere = function(element, attributeName, required) {
@@ -228,9 +228,9 @@ LSXReader.prototype.getSphere = function(element, attributeName, required) {
 
 /**
  * Parses a triangle leaf from the LSX file.
- * @param element Element to parse.
- * @param attributeName The attribute's name.
- * @param required Whether or not the method should write an error message if element is not provided.
+ * @param element {DOMElement} Element to parse.
+ * @param attributeName {string} The attribute's name.
+ * @param required {boolean} Whether or not the method should write an error message if element is not provided.
  * @returns {*} null on error, array of triangle args otherwise.
  */
 LSXReader.prototype.getTriangle = function(element, attributeName, required) {
@@ -239,9 +239,9 @@ LSXReader.prototype.getTriangle = function(element, attributeName, required) {
 
 /**
  * Parses a the center from a circular animation from the LSX file.
- * @param element Element to parse.
- * @param attributeName The attribute's name.
- * @param required Whether or not the method should write an error message if element is not provided.
+ * @param element {DOMElement} Element to parse.
+ * @param attributeName {string} The attribute's name.
+ * @param required {boolean} Whether or not the method should write an error message if element is not provided.
  * @returns {*} null on error, array of triangle args otherwise.
  */
 LSXReader.prototype.getCenter = function(element, attributeName,required) {
@@ -250,8 +250,8 @@ LSXReader.prototype.getCenter = function(element, attributeName,required) {
 
 /**
  * Parses a plane leaf from the LSX file.
- * @param element Element to parse.
- * @param required Whether or not the method should write an error message if element is not provided.
+ * @param element {DOMElement} Element to parse.
+ * @param required {boolean} Whether or not the method should write an error message if element is not provided.
  * @returns {*} null on error, array of triangle args otherwise.
  */
 LSXReader.prototype.getPlane = function(element, required) {
@@ -284,8 +284,8 @@ LSXReader.prototype.getPlane = function(element, required) {
 
 /**
  * Parses a patch leaf from the LSX file.
- * @param element Element to parse.
- * @param required Whether or not the method should write an error message if element is not provided.
+ * @param element {DOMElement} Element to parse.
+ * @param required {boolean} Whether or not the method should write an error message if element is not provided.
  * @returns {*} null on error, array of triangle args otherwise.
  */
 LSXReader.prototype.getPatch = function(element, required){
