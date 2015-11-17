@@ -1,5 +1,6 @@
 /**
- * @constructor SceneGraph terrain leaf constructor
+ * SceneGraph terrain leaf constructor
+ * @constructor
  * @param id {string} Node identification
  * @param textureUrl {string} Url for the terrain texture
  * @param heightmapUrl {string} Url for the terrain heightmap

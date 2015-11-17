@@ -1,5 +1,6 @@
 /**
- * @constructor LSXReader constructor.
+ * LSXReader constructor.
+ * @constructor
  */
 function LSXReader() {
     CGFXMLreader.call(this);

@@ -1,5 +1,6 @@
 /**
- * @constructor SceneGraph plane leaf constructor
+ * SceneGraph plane leaf constructor
+ * @constructor
  * @param id {string} Node identification
  * @param partsV {number} Divisions across the U and V axis
  */

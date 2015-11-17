@@ -1,5 +1,6 @@
 /**
- * @constructor SceneGraph patch leaf constructor
+ * SceneGraph patch leaf constructor
+ * @constructor
  * @param id {string} Node identification
  * @param order {number} Patch curves degree
  * @param partsU {number} Divisions across the U axis

@@ -1,5 +1,6 @@
 /**
- * @constructor SceneGraph rectangle leaf constructor
+ * SceneGraph rectangle leaf constructor
+ * @constructor
  * @param id {string} Node identification
  * @param v1x {number} X Coordinate of top-left point
  * @param v1y {number} Y Coordinate of top-left point

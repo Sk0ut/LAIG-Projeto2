@@ -1,9 +1,9 @@
 /**
- * Animation class.
- * @param id The animation id.
- * @param span The animation's span
- * @param type The animation's type (circular/linear)
- * @constructor Animation constructor.
+ * Animation constructor.
+ * @constructor 
+ * @param id {String} The animation id.
+ * @param span {Float} The animation's span
+ * @param type {String} The animation's type
  */
 function Animation(id, span, type) {
     this.id = id;
